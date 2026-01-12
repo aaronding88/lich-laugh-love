@@ -1,0 +1,343 @@
+[gd_scene load_steps=65 format=3 uid="uid://begerpkge6ear"]
+
+[ext_resource type="Script" uid="uid://ctljnq287fqba" path="res://scenes/unit/unit.gd" id="1_8iace"]
+[ext_resource type="Texture2D" uid="uid://brswm3vmlvs7v" path="res://assets/isometric/unit_models/orc_warrior/Idle_Armed/Body/225/Idle_Armed_Body_225_0001.png" id="1_bg1qp"]
+[ext_resource type="Texture2D" uid="uid://ba428f5vdagn5" path="res://assets/isometric/unit_models/orc_warrior/Idle_Armed/Body/225/Idle_Armed_Body_225_0002.png" id="2_8477q"]
+[ext_resource type="Resource" uid="uid://dvug8nvq2op1y" path="res://resources/units/orc.tres" id="2_ad734"]
+[ext_resource type="Texture2D" uid="uid://ke62vsgft8d7" path="res://assets/isometric/unit_models/orc_warrior/Hit_Block/Body/225/Hit_Block_Body_225_0001.png" id="2_uwval"]
+[ext_resource type="Texture2D" uid="uid://cmlp04u683xp4" path="res://assets/isometric/unit_models/orc_warrior/Idle_Armed/Body/225/Idle_Armed_Body_225_0003.png" id="3_8viqk"]
+[ext_resource type="Texture2D" uid="uid://dtpi65doh8eg4" path="res://assets/isometric/unit_models/orc_warrior/Hit_Block/Body/225/Hit_Block_Body_225_0002.png" id="3_ad734"]
+[ext_resource type="Material" uid="uid://djrscqxmh7ufg" path="res://assets/shaders/2d_outline_shader.tres" id="3_ier26"]
+[ext_resource type="Texture2D" uid="uid://dk7mtdoe1sf6l" path="res://assets/isometric/unit_models/orc_warrior/Hit_Block/Body/225/Hit_Block_Body_225_0003.png" id="4_3sbfn"]
+[ext_resource type="Texture2D" uid="uid://lobu1ralw4rb" path="res://assets/isometric/unit_models/orc_warrior/Idle_Armed/Body/225/Idle_Armed_Body_225_0004.png" id="4_5pcy6"]
+[ext_resource type="Texture2D" uid="uid://b31paa8k4phbp" path="res://assets/isometric/unit_models/orc_warrior/Hit_Block/Body/225/Hit_Block_Body_225_0004.png" id="5_cdnpv"]
+[ext_resource type="Texture2D" uid="uid://bwjmidq48dygw" path="res://assets/isometric/unit_models/orc_warrior/Idle_Armed/Body/225/Idle_Armed_Body_225_0005.png" id="5_k1jjk"]
+[ext_resource type="Texture2D" uid="uid://ccli2wypkf7k7" path="res://assets/isometric/unit_models/orc_warrior/Hit_Block/Body/225/Hit_Block_Body_225_0005.png" id="6_ier26"]
+[ext_resource type="Texture2D" uid="uid://cqfl53wijttjc" path="res://assets/isometric/unit_models/orc_warrior/Idle_Armed/Body/225/Idle_Armed_Body_225_0006.png" id="6_xlljb"]
+[ext_resource type="Texture2D" uid="uid://dtclxvq30cks2" path="res://assets/isometric/unit_models/orc_warrior/Idle_Armed/Body/225/Idle_Armed_Body_225_0007.png" id="7_n8yuq"]
+[ext_resource type="Texture2D" uid="uid://bvy3j8w3on0xp" path="res://assets/isometric/unit_models/orc_warrior/Hit_Block/Body/225/Hit_Block_Body_225_0006.png" id="7_rml14"]
+[ext_resource type="Texture2D" uid="uid://bdadgoemroegn" path="res://assets/isometric/unit_models/orc_warrior/Hit_Block/Body/225/Hit_Block_Body_225_0007.png" id="8_85q37"]
+[ext_resource type="Texture2D" uid="uid://dra5lnayoc5tl" path="res://assets/isometric/unit_models/orc_warrior/Idle_Armed/Body/225/Idle_Armed_Body_225_0008.png" id="8_ttot2"]
+[ext_resource type="Texture2D" uid="uid://dx8vjjm6x3m5f" path="res://assets/isometric/unit_models/orc_warrior/Idle_Armed/Body/225/Idle_Armed_Body_225_0009.png" id="9_n85hq"]
+[ext_resource type="Texture2D" uid="uid://c1hpmfve8d6gq" path="res://assets/isometric/unit_models/orc_warrior/Hit_Block/Body/225/Hit_Block_Body_225_0008.png" id="9_xwecb"]
+[ext_resource type="Texture2D" uid="uid://cad3gv1d4gvnn" path="res://assets/isometric/unit_models/orc_warrior/Idle_Armed/Body/225/Idle_Armed_Body_225_0010.png" id="10_62pg8"]
+[ext_resource type="Texture2D" uid="uid://bviy7tdnkkmph" path="res://assets/isometric/unit_models/orc_warrior/Hit_Block/Body/225/Hit_Block_Body_225_0009.png" id="10_dvltv"]
+[ext_resource type="Texture2D" uid="uid://btip432jyh4bp" path="res://assets/isometric/unit_models/orc_warrior/Idle_Armed/Body/225/Idle_Armed_Body_225_0011.png" id="11_c6blk"]
+[ext_resource type="Texture2D" uid="uid://cjfdufwe8k0ro" path="res://assets/isometric/unit_models/orc_warrior/Hit_Block/Body/225/Hit_Block_Body_225_0010.png" id="11_gl61b"]
+[ext_resource type="Texture2D" uid="uid://brg7i4uctk3o1" path="res://assets/isometric/unit_models/orc_warrior/Hit_Block/Body/225/Hit_Block_Body_225_0011.png" id="12_48fop"]
+[ext_resource type="Texture2D" uid="uid://bduejmse1jjop" path="res://assets/isometric/unit_models/orc_warrior/Idle_Armed/Body/225/Idle_Armed_Body_225_0012.png" id="12_84yxt"]
+[ext_resource type="Texture2D" uid="uid://cadylchnxvu1k" path="res://assets/isometric/unit_models/orc_warrior/Hit_Block/Body/225/Hit_Block_Body_225_0012.png" id="13_gthpo"]
+[ext_resource type="Texture2D" uid="uid://fiflesfqc2sm" path="res://assets/isometric/unit_models/orc_warrior/Idle_Armed/Body/225/Idle_Armed_Body_225_0013.png" id="13_poctw"]
+[ext_resource type="Texture2D" uid="uid://c5kjicy74yy11" path="res://assets/isometric/unit_models/orc_warrior/Hit_Block/Body/225/Hit_Block_Body_225_0013.png" id="14_bwl76"]
+[ext_resource type="Texture2D" uid="uid://7lf5bjwohela" path="res://assets/isometric/unit_models/orc_warrior/Idle_Armed/Body/225/Idle_Armed_Body_225_0014.png" id="14_uu2gx"]
+[ext_resource type="Texture2D" uid="uid://d4eaqfxivwbpg" path="res://assets/isometric/unit_models/orc_warrior/Idle_Armed/Body/225/Idle_Armed_Body_225_0015.png" id="15_efhjw"]
+[ext_resource type="Texture2D" uid="uid://dvb2lqqjcf21d" path="res://assets/isometric/unit_models/orc_warrior/Hit_Block/Body/225/Hit_Block_Body_225_0014.png" id="15_gppyw"]
+[ext_resource type="Texture2D" uid="uid://btoix6j6vnpmt" path="res://assets/isometric/unit_models/orc_warrior/Hit_Block/Body/225/Hit_Block_Body_225_0015.png" id="16_e5o08"]
+[ext_resource type="Texture2D" uid="uid://c0bjqtx1eyneo" path="res://assets/isometric/unit_models/orc_warrior/Idle_Armed/Body/225/Idle_Armed_Body_225_0016.png" id="16_omyc0"]
+[ext_resource type="Texture2D" uid="uid://dgqgrmyv0glq4" path="res://assets/isometric/unit_models/orc_warrior/Hit_Block/Body/225/Hit_Block_Body_225_0016.png" id="17_cf73d"]
+[ext_resource type="Texture2D" uid="uid://8uc044aekfbc" path="res://assets/isometric/unit_models/orc_warrior/Idle_Armed/Shadow/225/Idle_Armed_Shadow_225_0001.png" id="17_xwkqj"]
+[ext_resource type="Texture2D" uid="uid://mtbn5vhoi3l8" path="res://assets/isometric/unit_models/orc_warrior/Idle_Armed/Shadow/225/Idle_Armed_Shadow_225_0002.png" id="18_8iace"]
+[ext_resource type="Texture2D" uid="uid://bf5atflr4cpus" path="res://assets/isometric/unit_models/orc_warrior/Hit_Block/Body/225/Hit_Block_Body_225_0017.png" id="18_ntlns"]
+[ext_resource type="Texture2D" uid="uid://df7o1hsldoxo7" path="res://assets/isometric/unit_models/orc_warrior/Idle_Armed/Shadow/225/Idle_Armed_Shadow_225_0003.png" id="19_7hr6h"]
+[ext_resource type="Texture2D" uid="uid://t8q5u246dn68" path="res://assets/isometric/unit_models/orc_warrior/Hit_Block/Body/225/Hit_Block_Body_225_0018.png" id="19_ntyvj"]
+[ext_resource type="Texture2D" uid="uid://dhowh28petntb" path="res://assets/isometric/unit_models/orc_warrior/Hit_Block/Body/225/Hit_Block_Body_225_0019.png" id="20_104e1"]
+[ext_resource type="Texture2D" uid="uid://ipa0sntlrjfk" path="res://assets/isometric/unit_models/orc_warrior/Idle_Armed/Shadow/225/Idle_Armed_Shadow_225_0004.png" id="20_dpru8"]
+[ext_resource type="Texture2D" uid="uid://xkbmtvgjf22t" path="res://assets/isometric/unit_models/orc_warrior/Hit_Block/Body/225/Hit_Block_Body_225_0020.png" id="21_imjy6"]
+[ext_resource type="Texture2D" uid="uid://vbtqmhtuxguv" path="res://assets/isometric/unit_models/orc_warrior/Idle_Armed/Shadow/225/Idle_Armed_Shadow_225_0005.png" id="21_jipoo"]
+[ext_resource type="Texture2D" uid="uid://cpetk5m8udgna" path="res://assets/isometric/unit_models/orc_warrior/Idle_Armed/Shadow/225/Idle_Armed_Shadow_225_0006.png" id="22_5gxoy"]
+[ext_resource type="Texture2D" uid="uid://pkom03lqkmhw" path="res://assets/isometric/unit_models/orc_warrior/Idle_Armed/Shadow/225/Idle_Armed_Shadow_225_0007.png" id="23_u3ytj"]
+[ext_resource type="Texture2D" uid="uid://dfig3ojj5t8fb" path="res://assets/isometric/unit_models/orc_warrior/Idle_Armed/Shadow/225/Idle_Armed_Shadow_225_0008.png" id="24_wvnjl"]
+[ext_resource type="Texture2D" uid="uid://pon4xk28otrj" path="res://assets/isometric/unit_models/orc_warrior/Idle_Armed/Shadow/225/Idle_Armed_Shadow_225_0009.png" id="25_nukq6"]
+[ext_resource type="Texture2D" uid="uid://n4tbx44u63yl" path="res://assets/isometric/unit_models/orc_warrior/Idle_Armed/Shadow/225/Idle_Armed_Shadow_225_0010.png" id="26_hq6es"]
+[ext_resource type="Texture2D" uid="uid://dc86ywkgb3mss" path="res://assets/isometric/unit_models/orc_warrior/Idle_Armed/Shadow/225/Idle_Armed_Shadow_225_0011.png" id="27_8ca70"]
+[ext_resource type="Texture2D" uid="uid://bpwrucc8qx3ci" path="res://assets/isometric/unit_models/orc_warrior/Idle_Armed/Shadow/225/Idle_Armed_Shadow_225_0012.png" id="28_ighkk"]
+[ext_resource type="Texture2D" uid="uid://c7j87hsjircjo" path="res://assets/isometric/unit_models/orc_warrior/Idle_Armed/Shadow/225/Idle_Armed_Shadow_225_0013.png" id="29_6ybre"]
+[ext_resource type="Texture2D" uid="uid://b8n2yvcwh5soa" path="res://assets/isometric/unit_models/orc_warrior/Idle_Armed/Shadow/225/Idle_Armed_Shadow_225_0014.png" id="30_sskp6"]
+[ext_resource type="Texture2D" uid="uid://hmkgy1vp0gq0" path="res://assets/isometric/unit_models/orc_warrior/Idle_Armed/Shadow/225/Idle_Armed_Shadow_225_0015.png" id="31_nepry"]
+[ext_resource type="Texture2D" uid="uid://chgrlx11qui21" path="res://assets/isometric/unit_models/orc_warrior/Idle_Armed/Shadow/225/Idle_Armed_Shadow_225_0016.png" id="32_5osfx"]
+[ext_resource type="Script" uid="uid://wk0kgckda58s" path="res://components/drag_and_drop.gd" id="55_3sbfn"]
+[ext_resource type="Script" uid="uid://dssc5pe7ik6wk" path="res://components/outline_highlighter.gd" id="57_ier26"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xwkqj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_uwval")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ad734")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_3sbfn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_cdnpv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ier26")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_rml14")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_85q37")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_xwecb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_dvltv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_gl61b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_48fop")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_gthpo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_bwl76")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_gppyw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_e5o08")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_cf73d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_ntlns")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_ntyvj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_104e1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_imjy6")
+}],
+"loop": true,
+"name": &"block_armed_225",
+"speed": 20.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_bg1qp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_8477q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_8viqk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_5pcy6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_k1jjk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_xlljb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_n8yuq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ttot2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_n85hq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_62pg8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_c6blk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_84yxt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_poctw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_uu2gx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_efhjw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_omyc0")
+}],
+"loop": true,
+"name": &"idle_armed_225",
+"speed": 10.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7e47w"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("17_xwkqj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_8iace")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_7hr6h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_dpru8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_jipoo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_5gxoy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_u3ytj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_wvnjl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_nukq6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_hq6es")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_8ca70")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_ighkk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_6ybre")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_sskp6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_nepry")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_5osfx")
+}],
+"loop": true,
+"name": &"idle_armed_shadow_225",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bg1qp"]
+size = Vector2(65, 139)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xwkqj"]
+bg_color = Color(0.23137255, 0.11372549, 0.09803922, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8iace"]
+bg_color = Color(0, 0.73333335, 0.3137255, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.23137255, 0.11372549, 0.09803922, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7hr6h"]
+bg_color = Color(0.23137255, 0.11372549, 0.09803922, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dpru8"]
+bg_color = Color(0.7145129, 0.58807546, 0.07675909, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.23137255, 0.11372549, 0.09803922, 1)
+
+[node name="Unit" type="Area2D"]
+script = ExtResource("1_8iace")
+stats = ExtResource("2_ad734")
+metadata/_edit_group_ = true
+
+[node name="Visuals" type="CanvasGroup" parent="."]
+material = ExtResource("3_ier26")
+
+[node name="Body" type="AnimatedSprite2D" parent="Visuals"]
+visible = false
+z_index = 1
+position = Vector2(0, -32)
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_xwkqj")
+animation = &"idle_armed_225"
+autoplay = "idle_armed_225"
+frame_progress = 0.7664582
+
+[node name="Shadow" type="AnimatedSprite2D" parent="Visuals/Body"]
+z_as_relative = false
+position = Vector2(0, 21.333334)
+scale = Vector2(0.6666667, 0.6666667)
+sprite_frames = SubResource("SpriteFrames_7e47w")
+animation = &"idle_armed_shadow_225"
+autoplay = "idle_armed_shadow_225"
+frame_progress = 0.61926246
+
+[node name="Placeholder" type="Sprite2D" parent="Visuals"]
+position = Vector2(0, -23)
+texture = ExtResource("1_bg1qp")
+region_rect = Rect2(0, 0, 256, 256)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(9.5, -25.5)
+shape = SubResource("RectangleShape2D_bg1qp")
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+offset_left = -44.0
+offset_top = -116.0
+offset_right = 51.0
+offset_bottom = -110.0
+theme_override_styles/background = SubResource("StyleBoxFlat_xwkqj")
+theme_override_styles/fill = SubResource("StyleBoxFlat_8iace")
+value = 40.0
+show_percentage = false
+
+[node name="FatigueBar" type="ProgressBar" parent="."]
+offset_left = -44.0
+offset_top = -109.0
+offset_right = 51.0
+offset_bottom = -103.0
+theme_override_styles/background = SubResource("StyleBoxFlat_7hr6h")
+theme_override_styles/fill = SubResource("StyleBoxFlat_dpru8")
+value = 12.0
+show_percentage = false
+
+[node name="DragAndDrop" type="Node" parent="." node_paths=PackedStringArray("target")]
+script = ExtResource("55_3sbfn")
+target = NodePath("..")
+metadata/_custom_type_script = "uid://wk0kgckda58s"
+
+[node name="OutlineHighlighter" type="Node" parent="." node_paths=PackedStringArray("visuals")]
+script = ExtResource("57_ier26")
+visuals = NodePath("../Visuals")
+outline_color = Color(1, 1, 1, 1)
+outline_thickness = 2
+metadata/_custom_type_script = "uid://dssc5pe7ik6wk"
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

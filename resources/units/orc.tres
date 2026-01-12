@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="UnitStats" load_steps=3 format=3 uid="uid://dvug8nvq2op1y"]
+
+[ext_resource type="Script" uid="uid://bn7hlrg1pey0v" path="res://data/units/unit_stats.gd" id="1_qm056"]
+[ext_resource type="Texture2D" uid="uid://brswm3vmlvs7v" path="res://assets/isometric/unit_models/orc_warrior/Idle_Armed/Body/225/Idle_Armed_Body_225_0001.png" id="2_qm056"]
+
+[resource]
+script = ExtResource("1_qm056")
+name = "Orc"
+resource_cost = 5
+unit_texture = ExtResource("2_qm056")
+metadata/_custom_type_script = "uid://bn7hlrg1pey0v"

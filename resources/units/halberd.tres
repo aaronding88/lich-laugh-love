@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="UnitStats" load_steps=3 format=3 uid="uid://dy0r3xqgqrkya"]
+
+[ext_resource type="Script" uid="uid://bn7hlrg1pey0v" path="res://data/units/unit_stats.gd" id="1_tnhpx"]
+[ext_resource type="Texture2D" uid="uid://dq2nwpw0r5e5h" path="res://assets/isometric/unit_models/halberd/Idle_Body_225.png" id="2_tnhpx"]
+
+[resource]
+script = ExtResource("1_tnhpx")
+name = "Orc"
+resource_cost = 5
+unit_texture = ExtResource("2_tnhpx")
+spritesheet = true
+metadata/_custom_type_script = "uid://bn7hlrg1pey0v"
