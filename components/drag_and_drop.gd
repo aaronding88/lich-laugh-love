@@ -11,6 +11,7 @@ signal dropped(starting_position: Vector2)
 var starting_position: Vector2
 var offset := Vector2.ZERO
 var dragging := false
+var old_drag_z := 0
 
 func _ready() -> void:
 	assert(target, "No target set for DragAndDrop Component!")
@@ -25,11 +26,21 @@ func _input(event: InputEvent) -> void:
 		_cancel_dragging()
 	elif dragging and event.is_action_released("select"):
 		_drop()
+
+# TODO: Maybe deprecate this?
+func snap_iso(pos: Vector2, tile_size_var: Vector2) -> Vector2:
+	var half_tile_size: Vector2 = tile_size_var * 0.5
+	
+	# Should take some time to understand what's happening here
+	var grid_x: float = round((pos.x / half_tile_size.x + pos.y / half_tile_size.y) * 0.5)
+	var grid_y: float = round((pos.y / half_tile_size.y - pos.x / half_tile_size.x) * 0.5)
+	
+	return Vector2(grid_x-grid_y, grid_x+grid_y) * half_tile_size
 		
 func _end_dragging() -> void:
 	dragging = false
 	target.remove_from_group("dragging")
-	target.z_index = 0
+	target.z_index = old_drag_z
 	
 func _cancel_dragging() -> void:
 	_end_dragging()
@@ -37,6 +48,7 @@ func _cancel_dragging() -> void:
 	
 func _start_dragging() -> void:
 	dragging = true
+	old_drag_z = target.z_index
 	starting_position = target.global_position
 	target.add_to_group("dragging")
 	target.z_index = 99

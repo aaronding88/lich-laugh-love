@@ -1,11 +1,18 @@
-[gd_resource type="Resource" script_class="UnitStats" load_steps=3 format=3 uid="uid://dvug8nvq2op1y"]
+[gd_resource type="Resource" script_class="UnitStats" load_steps=5 format=3 uid="uid://dvug8nvq2op1y"]
 
+[ext_resource type="Texture2D" uid="uid://bo1hxqwkjve54" path="res://assets/isometric/unit_models/orc_warrior/Selection/Idle_Unarmed_Body.png" id="1_4ylgc"]
 [ext_resource type="Script" uid="uid://bn7hlrg1pey0v" path="res://data/units/unit_stats.gd" id="1_qm056"]
-[ext_resource type="Texture2D" uid="uid://brswm3vmlvs7v" path="res://assets/isometric/unit_models/orc_warrior/Idle_Armed/Body/225/Idle_Armed_Body_225_0001.png" id="2_qm056"]
+[ext_resource type="Texture2D" uid="uid://8hs3am6yp20r" path="res://assets/isometric/unit_models/orc_warrior/Idle_Armed/Idle_Armed_Body_225.png" id="3_4ylgc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ylgc"]
+atlas = ExtResource("3_4ylgc")
+region = Rect2(0, 0, 256, 256)
 
 [resource]
 script = ExtResource("1_qm056")
 name = "Orc"
-resource_cost = 5
-unit_texture = ExtResource("2_qm056")
+resource_cost = 100
+rarity = 1
+unit_texture = SubResource("AtlasTexture_4ylgc")
+icon_texture = ExtResource("1_4ylgc")
 metadata/_custom_type_script = "uid://bn7hlrg1pey0v"

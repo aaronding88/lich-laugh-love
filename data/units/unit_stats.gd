@@ -1,18 +1,28 @@
 class_name UnitStats
 extends Resource
 
-# Not using rarity initially, but we may do it depending on game design later
-enum _RARITY {COMMON, UNCOMMON, RARE, LEGENDARY}
+enum RARITY {COMMON, UNCOMMON, RARE, LEGENDARY}
+
+const RARITY_COLORS := {
+	RARITY.COMMON: Color("027000"),
+	RARITY.UNCOMMON: Color("1c527c"),
+	RARITY.RARE: Color("ab0979"),
+	RARITY.LEGENDARY: Color("ea940b")
+}
+
+const Z_INDEX := 1
 
 @export var name: String
 
 @export_category("Date")
 @export var resource_cost := 1
+@export var rarity: RARITY
+@export var unit_count := 10
 
 @export_category("Visuals")
-@export var unit_model: SpriteFrames
 @export var unit_texture: Texture2D
-@export var spritesheet: bool
+@export var icon_texture: Texture2D
+@export var spritesheet_size: Vector2i
 
 func _to_string() -> String:
 	return name
