@@ -31,9 +31,9 @@ func _move_unit(unit: Unit, tile: Vector2i) -> void:
 func _on_unit_drag_started(unit: Unit) -> void:
 	_set_highlighters(true)
 	
-	if play_area.is_tile_in_bounds(unit.global_position):
-		var tile := play_area.get_tile_from_global(unit.global_position)
-		play_area.unit_grid.remove_unit(tile)
+	var unit_tile_position = play_area.get_tile_from_global(unit.global_position)
+	if play_area.is_tile_in_bounds(unit_tile_position):
+		play_area.unit_grid.remove_unit(unit_tile_position)
 
 func _on_unit_drag_canceled(starting_position: Vector2i, unit: Unit) -> void:
 	_set_highlighters(false)
@@ -51,6 +51,7 @@ func _on_unit_dropped(starting_position: Vector2, unit: Unit) -> void:
 	
 	# swap units if we have to
 	if play_area.unit_grid.is_tile_occupied(new_tile):
+		# Bugfix here ^ it's fetching an adjacent "old unit" even if tile is empty
 		var old_unit: Unit = play_area.unit_grid.units[new_tile]
 		play_area.unit_grid.remove_unit(new_tile)
 		_move_unit(old_unit, old_tile)

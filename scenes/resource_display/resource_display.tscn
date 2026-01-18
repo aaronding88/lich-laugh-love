@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://b1w5xow01sunu"]
+
+[ext_resource type="Script" uid="uid://803fn1ifj7al" path="res://scenes/resource_display/resource_display.gd" id="1_v3mgd"]
+[ext_resource type="Texture2D" uid="uid://gb1du6ocfln6" path="res://assets/isometric/icon/energy_icon.png" id="1_xvgyo"]
+[ext_resource type="Resource" uid="uid://ojtrw5fc8ohj" path="res://data/player/player_stats.tres" id="2_ecnka"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_v3mgd"]
+font_size = 32
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 1)
+
+[node name="ResourceDisplay" type="HBoxContainer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -35.5
+offset_right = 35.5
+offset_bottom = 50.0
+grow_horizontal = 2
+script = ExtResource("1_v3mgd")
+player_stats = ExtResource("2_ecnka")
+
+[node name="Resource" type="Label" parent="."]
+layout_mode = 2
+text = "3000"
+label_settings = SubResource("LabelSettings_v3mgd")
+
+[node name="Icon" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(50, 80)
+layout_mode = 2
+texture = ExtResource("1_xvgyo")
+expand_mode = 1
+stretch_mode = 6

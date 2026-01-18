@@ -1,16 +1,20 @@
-[gd_scene load_steps=15 format=4 uid="uid://daqlvni0vje2f"]
+[gd_scene load_steps=18 format=4 uid="uid://daqlvni0vje2f"]
 
 [ext_resource type="TileSet" uid="uid://iirxeuj11qtn" path="res://resources/tilesets/dungeon_room.tres" id="1_5xam1"]
 [ext_resource type="Script" uid="uid://ck1lf2rq3opj4" path="res://scenes/dungeon_room/dungeon_room.gd" id="1_j14ek"]
 [ext_resource type="PackedScene" uid="uid://begerpkge6ear" path="res://scenes/unit/unit.tscn" id="3_kwrl2"]
 [ext_resource type="Script" uid="uid://bqy1uwvqjyq6j" path="res://components/play_area.gd" id="3_ohn1x"]
-[ext_resource type="Script" uid="uid://bn7hlrg1pey0v" path="res://data/units/unit_stats.gd" id="4_4hobq"]
-[ext_resource type="Resource" uid="uid://dy0r3xqgqrkya" path="res://resources/units/halberd.tres" id="4_iyyhj"]
 [ext_resource type="Texture2D" uid="uid://uvnwcfs4n1ht" path="res://assets/isometric/environment/tilesheet/Ground.png" id="4_kns8m"]
 [ext_resource type="Script" uid="uid://v7xcoy5i2xfe" path="res://components/unit_grid.gd" id="4_ohn1x"]
 [ext_resource type="Script" uid="uid://cjat1spuabjp4" path="res://components/tile_highlighter.gd" id="5_h6ui1"]
-[ext_resource type="Texture2D" uid="uid://brswm3vmlvs7v" path="res://assets/isometric/unit_models/orc_warrior/Idle_Armed/Body/225/Idle_Armed_Body_225_0001.png" id="5_so1o4"]
+[ext_resource type="Resource" uid="uid://cjgmkno4a2hwk" path="res://resources/units/spider.tres" id="10_8qi0i"]
 [ext_resource type="Script" uid="uid://b0br0dvfaj8xn" path="res://components/unit_mover.gd" id="11_le5r4"]
+[ext_resource type="Script" uid="uid://dw8d02g0wr20h" path="res://components/unit_spawner.gd" id="12_4rmg0"]
+[ext_resource type="PackedScene" uid="uid://cyoloppcivjho" path="res://scenes/unit_roster/unit_roster.tscn" id="13_3o0a6"]
+[ext_resource type="Script" uid="uid://cir8gqyokey6m" path="res://scenes/dungeon_room/main_camera.gd" id="13_8qi0i"]
+[ext_resource type="PackedScene" uid="uid://b1w5xow01sunu" path="res://scenes/resource_display/resource_display.tscn" id="14_2naqr"]
+[ext_resource type="PackedScene" uid="uid://d356duxwr8c7c" path="res://scenes/sell_portal/sell_portal.tscn" id="14_8qi0i"]
+[ext_resource type="Resource" uid="uid://ojtrw5fc8ohj" path="res://data/player/player_stats.tres" id="15_8qi0i"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_le5r4"]
 texture = ExtResource("4_kns8m")
@@ -125,14 +129,6 @@ tile_shape = 1
 tile_size = Vector2i(256, 128)
 sources/2 = SubResource("TileSetAtlasSource_le5r4")
 
-[sub_resource type="Resource" id="Resource_4hobq"]
-resource_local_to_scene = true
-script = ExtResource("4_4hobq")
-name = "Orc"
-resource_cost = 5
-unit_texture = ExtResource("5_so1o4")
-metadata/_custom_type_script = "uid://bn7hlrg1pey0v"
-
 [node name="DungeonRoom" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_j14ek")
@@ -164,12 +160,11 @@ tile_highlighter = NodePath("TileHighlighter")
 [node name="Highlight" type="TileMapLayer" parent="GameArea"]
 modulate = Color(0, 1, 0, 0.3019608)
 z_index = 2
-tile_map_data = PackedByteArray("AAD9//7/AgAEAAAAAAA=")
 tile_set = SubResource("TileSet_ohn1x")
 
 [node name="Floor" type="TileMapLayer" parent="GameArea"]
 y_sort_enabled = true
-tile_map_data = PackedByteArray("AAD+/wYAPAACAAQAAAD+/wUAPAACAAQAAAD//wQAPAACAAQAAAD//wMAPAADAAQAAAAAAAEAPAADAAQAAAABAAIAPAADAAQAAAABAAMAPAADAAQAAAACAAQAPAABAAQAAAACAAUAPAACAAQAAAADAAYAPAAAAAQAAAAAAAsAPAACAAQAAAABAAoAPAADAAQAAAABAAkAPAADAAQAAAACAAgAPAAAAAQAAAACAAcAPAAAAAQAAAACAAYAPAADAAQAAAABAAUAPAACAAQAAAABAAQAPAACAAQAAAAAAAMAPAACAAQAAAAAAAIAPAABAAQAAAAAAAQAPAABAAQAAAAAAAUAPAADAAQAAAABAAYAPAAAAAQAAAABAAcAPAACAAQAAAABAAgAPAAAAAQAAAAAAAkAPAACAAQAAAAAAAoAPAAAAAQAAAD//wgAPAAAAAQAAAD+/wcAPAABAAQAAAD//wkAPAACAAQAAAAAAAgAPAACAAQAAAAAAAcAPAADAAQAAAAAAAYAPAABAAQAAAD//wUAPAACAAQAAAD//wYAPAADAAQAAAD//wcAPAADAAQAAAAAAAAAPAADAAQAAAD//wEAPAABAAQAAAD//wIAPAABAAQAAAD+/wMAPAADAAQAAAD+/wQAPAAAAAQAAAD9/wUAPAADAAQAAAADAAcAPAABAAQAAAADAAgAPAABAAQAAAACAAkAPAACAAQAAAACAAoAPAACAAQAAAABAAsAPAACAAQAAAABAAwAPAAAAAQAAAAAAA0APAADAAQAAAAAAAwAPAACAAQAAAD//wsAPAACAAQAAAD//woAPAAAAAQAAAD+/wkAPAADAAQAAAD+/wgAPAACAAQAAAD9/wcAPAABAAQAAAD9/wYAPAABAAQAAAA=")
+tile_map_data = PackedByteArray("AAD+/wYAPAACAAQAAAD+/wUAPAAIAAEAAAD//wQAPAAJAAAAAAD//wMAPAAIAAAAAAAAAAEAPAADAAQAAAABAAIAPAADAAQAAAABAAMAPAADAAQAAAACAAQAPAAKAAEAAAACAAUAPAAKAAIAAAADAAYAPAALAAEAAAAAAAsAPAAJAAEAAAABAAoAPAALAAEAAAABAAkAPAAJAAEAAAACAAgAPAALAAIAAAACAAcAPAADAAMAAAACAAYAPAAAAAAAAAABAAUAPAAIAAIAAAABAAQAPAAGAAIAAAAAAAMAPAAKAAEAAAAAAAIAPAABAAQAAAAAAAQAPAAGAAEAAAAAAAUAPAAFAAIAAAABAAYAPAAIAAIAAAABAAcAPAAFAAAAAAABAAgAPAABAAMAAAAAAAkAPAAKAAEAAAAAAAoAPAAIAAEAAAD//wgAPAACAAIAAAD+/wcAPAAEAAIAAAD//wkAPAALAAEAAAAAAAgAPAADAAQAAAAAAAcAPAAIAAEAAAAAAAYAPAACAAQAAAD//wUAPAAFAAAAAAD//wYAPAAFAAMAAAD//wcAPAAJAAEAAAAAAAAAPAADAAQAAAD//wEAPAABAAQAAAD//wIAPAABAAQAAAD+/wMAPAADAAQAAAD+/wQAPAAAAAQAAAD9/wUAPAADAAQAAAADAAcAPAABAAQAAAADAAgAPAABAAQAAAACAAkAPAACAAQAAAACAAoAPAACAAQAAAABAAsAPAACAAQAAAABAAwAPAAAAAQAAAAAAA0APAADAAQAAAAAAAwAPAACAAQAAAD//wsAPAACAAQAAAD//woAPAAJAAEAAAD+/wkAPAAFAAIAAAD+/wgAPAAIAAEAAAD9/wcAPAABAAQAAAD9/wYAPAABAAQAAAA=")
 tile_set = ExtResource("1_5xam1")
 
 [node name="ArenaUnitGrid" type="Node2D" parent="GameArea" node_paths=PackedStringArray("placeable_cells")]
@@ -187,18 +182,39 @@ highlight_layer = NodePath("../Highlight")
 metadata/_custom_type_script = "uid://cjat1spuabjp4"
 
 [node name="Orc" parent="." groups=["units"] instance=ExtResource("3_kwrl2")]
-z_index = 1
-y_sort_enabled = true
 position = Vector2(768, 512)
-stats = SubResource("Resource_4hobq")
 
-[node name="Halberd" parent="." groups=["units"] instance=ExtResource("3_kwrl2")]
-z_index = 1
-y_sort_enabled = true
+[node name="Spider" parent="." groups=["units"] instance=ExtResource("3_kwrl2")]
 position = Vector2(1024, 640)
-stats = ExtResource("4_iyyhj")
+stats = ExtResource("10_8qi0i")
 
 [node name="UnitMover" type="Node" parent="." node_paths=PackedStringArray("play_area")]
 script = ExtResource("11_le5r4")
 play_area = NodePath("../GameArea")
 metadata/_custom_type_script = "uid://b0br0dvfaj8xn"
+
+[node name="UnitSpawner" type="Node" parent="." node_paths=PackedStringArray("game_area")]
+script = ExtResource("12_4rmg0")
+game_area = NodePath("../GameArea")
+metadata/_custom_type_script = "uid://dw8d02g0wr20h"
+
+[node name="MainCamera" type="Camera2D" parent="."]
+position = Vector2(920.285, 576)
+limit_left = -800
+limit_top = -800
+limit_right = 2800
+limit_bottom = 1800
+script = ExtResource("13_8qi0i")
+move_speed = 800.0
+
+[node name="UI" type="CanvasLayer" parent="MainCamera"]
+
+[node name="UnitRoster" parent="MainCamera/UI" instance=ExtResource("13_3o0a6")]
+unique_name_in_owner = true
+
+[node name="ResourceDisplay" parent="MainCamera/UI" instance=ExtResource("14_2naqr")]
+
+[node name="SellPortal" parent="MainCamera/UI" instance=ExtResource("14_8qi0i")]
+unique_name_in_owner = true
+position = Vector2(128, 896)
+player_stats = ExtResource("15_8qi0i")

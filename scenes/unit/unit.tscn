@@ -1,125 +1,182 @@
-[gd_scene load_steps=65 format=3 uid="uid://begerpkge6ear"]
+[gd_scene load_steps=67 format=3 uid="uid://begerpkge6ear"]
 
 [ext_resource type="Script" uid="uid://ctljnq287fqba" path="res://scenes/unit/unit.gd" id="1_8iace"]
-[ext_resource type="Texture2D" uid="uid://brswm3vmlvs7v" path="res://assets/isometric/unit_models/orc_warrior/Idle_Armed/Body/225/Idle_Armed_Body_225_0001.png" id="1_bg1qp"]
-[ext_resource type="Texture2D" uid="uid://ba428f5vdagn5" path="res://assets/isometric/unit_models/orc_warrior/Idle_Armed/Body/225/Idle_Armed_Body_225_0002.png" id="2_8477q"]
 [ext_resource type="Resource" uid="uid://dvug8nvq2op1y" path="res://resources/units/orc.tres" id="2_ad734"]
-[ext_resource type="Texture2D" uid="uid://ke62vsgft8d7" path="res://assets/isometric/unit_models/orc_warrior/Hit_Block/Body/225/Hit_Block_Body_225_0001.png" id="2_uwval"]
-[ext_resource type="Texture2D" uid="uid://cmlp04u683xp4" path="res://assets/isometric/unit_models/orc_warrior/Idle_Armed/Body/225/Idle_Armed_Body_225_0003.png" id="3_8viqk"]
-[ext_resource type="Texture2D" uid="uid://dtpi65doh8eg4" path="res://assets/isometric/unit_models/orc_warrior/Hit_Block/Body/225/Hit_Block_Body_225_0002.png" id="3_ad734"]
 [ext_resource type="Material" uid="uid://djrscqxmh7ufg" path="res://assets/shaders/2d_outline_shader.tres" id="3_ier26"]
-[ext_resource type="Texture2D" uid="uid://dk7mtdoe1sf6l" path="res://assets/isometric/unit_models/orc_warrior/Hit_Block/Body/225/Hit_Block_Body_225_0003.png" id="4_3sbfn"]
-[ext_resource type="Texture2D" uid="uid://lobu1ralw4rb" path="res://assets/isometric/unit_models/orc_warrior/Idle_Armed/Body/225/Idle_Armed_Body_225_0004.png" id="4_5pcy6"]
-[ext_resource type="Texture2D" uid="uid://b31paa8k4phbp" path="res://assets/isometric/unit_models/orc_warrior/Hit_Block/Body/225/Hit_Block_Body_225_0004.png" id="5_cdnpv"]
-[ext_resource type="Texture2D" uid="uid://bwjmidq48dygw" path="res://assets/isometric/unit_models/orc_warrior/Idle_Armed/Body/225/Idle_Armed_Body_225_0005.png" id="5_k1jjk"]
-[ext_resource type="Texture2D" uid="uid://ccli2wypkf7k7" path="res://assets/isometric/unit_models/orc_warrior/Hit_Block/Body/225/Hit_Block_Body_225_0005.png" id="6_ier26"]
-[ext_resource type="Texture2D" uid="uid://cqfl53wijttjc" path="res://assets/isometric/unit_models/orc_warrior/Idle_Armed/Body/225/Idle_Armed_Body_225_0006.png" id="6_xlljb"]
-[ext_resource type="Texture2D" uid="uid://dtclxvq30cks2" path="res://assets/isometric/unit_models/orc_warrior/Idle_Armed/Body/225/Idle_Armed_Body_225_0007.png" id="7_n8yuq"]
-[ext_resource type="Texture2D" uid="uid://bvy3j8w3on0xp" path="res://assets/isometric/unit_models/orc_warrior/Hit_Block/Body/225/Hit_Block_Body_225_0006.png" id="7_rml14"]
-[ext_resource type="Texture2D" uid="uid://bdadgoemroegn" path="res://assets/isometric/unit_models/orc_warrior/Hit_Block/Body/225/Hit_Block_Body_225_0007.png" id="8_85q37"]
-[ext_resource type="Texture2D" uid="uid://dra5lnayoc5tl" path="res://assets/isometric/unit_models/orc_warrior/Idle_Armed/Body/225/Idle_Armed_Body_225_0008.png" id="8_ttot2"]
-[ext_resource type="Texture2D" uid="uid://dx8vjjm6x3m5f" path="res://assets/isometric/unit_models/orc_warrior/Idle_Armed/Body/225/Idle_Armed_Body_225_0009.png" id="9_n85hq"]
-[ext_resource type="Texture2D" uid="uid://c1hpmfve8d6gq" path="res://assets/isometric/unit_models/orc_warrior/Hit_Block/Body/225/Hit_Block_Body_225_0008.png" id="9_xwecb"]
-[ext_resource type="Texture2D" uid="uid://cad3gv1d4gvnn" path="res://assets/isometric/unit_models/orc_warrior/Idle_Armed/Body/225/Idle_Armed_Body_225_0010.png" id="10_62pg8"]
-[ext_resource type="Texture2D" uid="uid://bviy7tdnkkmph" path="res://assets/isometric/unit_models/orc_warrior/Hit_Block/Body/225/Hit_Block_Body_225_0009.png" id="10_dvltv"]
-[ext_resource type="Texture2D" uid="uid://btip432jyh4bp" path="res://assets/isometric/unit_models/orc_warrior/Idle_Armed/Body/225/Idle_Armed_Body_225_0011.png" id="11_c6blk"]
-[ext_resource type="Texture2D" uid="uid://cjfdufwe8k0ro" path="res://assets/isometric/unit_models/orc_warrior/Hit_Block/Body/225/Hit_Block_Body_225_0010.png" id="11_gl61b"]
-[ext_resource type="Texture2D" uid="uid://brg7i4uctk3o1" path="res://assets/isometric/unit_models/orc_warrior/Hit_Block/Body/225/Hit_Block_Body_225_0011.png" id="12_48fop"]
-[ext_resource type="Texture2D" uid="uid://bduejmse1jjop" path="res://assets/isometric/unit_models/orc_warrior/Idle_Armed/Body/225/Idle_Armed_Body_225_0012.png" id="12_84yxt"]
-[ext_resource type="Texture2D" uid="uid://cadylchnxvu1k" path="res://assets/isometric/unit_models/orc_warrior/Hit_Block/Body/225/Hit_Block_Body_225_0012.png" id="13_gthpo"]
-[ext_resource type="Texture2D" uid="uid://fiflesfqc2sm" path="res://assets/isometric/unit_models/orc_warrior/Idle_Armed/Body/225/Idle_Armed_Body_225_0013.png" id="13_poctw"]
-[ext_resource type="Texture2D" uid="uid://c5kjicy74yy11" path="res://assets/isometric/unit_models/orc_warrior/Hit_Block/Body/225/Hit_Block_Body_225_0013.png" id="14_bwl76"]
-[ext_resource type="Texture2D" uid="uid://7lf5bjwohela" path="res://assets/isometric/unit_models/orc_warrior/Idle_Armed/Body/225/Idle_Armed_Body_225_0014.png" id="14_uu2gx"]
-[ext_resource type="Texture2D" uid="uid://d4eaqfxivwbpg" path="res://assets/isometric/unit_models/orc_warrior/Idle_Armed/Body/225/Idle_Armed_Body_225_0015.png" id="15_efhjw"]
-[ext_resource type="Texture2D" uid="uid://dvb2lqqjcf21d" path="res://assets/isometric/unit_models/orc_warrior/Hit_Block/Body/225/Hit_Block_Body_225_0014.png" id="15_gppyw"]
-[ext_resource type="Texture2D" uid="uid://btoix6j6vnpmt" path="res://assets/isometric/unit_models/orc_warrior/Hit_Block/Body/225/Hit_Block_Body_225_0015.png" id="16_e5o08"]
-[ext_resource type="Texture2D" uid="uid://c0bjqtx1eyneo" path="res://assets/isometric/unit_models/orc_warrior/Idle_Armed/Body/225/Idle_Armed_Body_225_0016.png" id="16_omyc0"]
-[ext_resource type="Texture2D" uid="uid://dgqgrmyv0glq4" path="res://assets/isometric/unit_models/orc_warrior/Hit_Block/Body/225/Hit_Block_Body_225_0016.png" id="17_cf73d"]
-[ext_resource type="Texture2D" uid="uid://8uc044aekfbc" path="res://assets/isometric/unit_models/orc_warrior/Idle_Armed/Shadow/225/Idle_Armed_Shadow_225_0001.png" id="17_xwkqj"]
-[ext_resource type="Texture2D" uid="uid://mtbn5vhoi3l8" path="res://assets/isometric/unit_models/orc_warrior/Idle_Armed/Shadow/225/Idle_Armed_Shadow_225_0002.png" id="18_8iace"]
-[ext_resource type="Texture2D" uid="uid://bf5atflr4cpus" path="res://assets/isometric/unit_models/orc_warrior/Hit_Block/Body/225/Hit_Block_Body_225_0017.png" id="18_ntlns"]
-[ext_resource type="Texture2D" uid="uid://df7o1hsldoxo7" path="res://assets/isometric/unit_models/orc_warrior/Idle_Armed/Shadow/225/Idle_Armed_Shadow_225_0003.png" id="19_7hr6h"]
-[ext_resource type="Texture2D" uid="uid://t8q5u246dn68" path="res://assets/isometric/unit_models/orc_warrior/Hit_Block/Body/225/Hit_Block_Body_225_0018.png" id="19_ntyvj"]
-[ext_resource type="Texture2D" uid="uid://dhowh28petntb" path="res://assets/isometric/unit_models/orc_warrior/Hit_Block/Body/225/Hit_Block_Body_225_0019.png" id="20_104e1"]
-[ext_resource type="Texture2D" uid="uid://ipa0sntlrjfk" path="res://assets/isometric/unit_models/orc_warrior/Idle_Armed/Shadow/225/Idle_Armed_Shadow_225_0004.png" id="20_dpru8"]
-[ext_resource type="Texture2D" uid="uid://xkbmtvgjf22t" path="res://assets/isometric/unit_models/orc_warrior/Hit_Block/Body/225/Hit_Block_Body_225_0020.png" id="21_imjy6"]
-[ext_resource type="Texture2D" uid="uid://vbtqmhtuxguv" path="res://assets/isometric/unit_models/orc_warrior/Idle_Armed/Shadow/225/Idle_Armed_Shadow_225_0005.png" id="21_jipoo"]
-[ext_resource type="Texture2D" uid="uid://cpetk5m8udgna" path="res://assets/isometric/unit_models/orc_warrior/Idle_Armed/Shadow/225/Idle_Armed_Shadow_225_0006.png" id="22_5gxoy"]
-[ext_resource type="Texture2D" uid="uid://pkom03lqkmhw" path="res://assets/isometric/unit_models/orc_warrior/Idle_Armed/Shadow/225/Idle_Armed_Shadow_225_0007.png" id="23_u3ytj"]
-[ext_resource type="Texture2D" uid="uid://dfig3ojj5t8fb" path="res://assets/isometric/unit_models/orc_warrior/Idle_Armed/Shadow/225/Idle_Armed_Shadow_225_0008.png" id="24_wvnjl"]
-[ext_resource type="Texture2D" uid="uid://pon4xk28otrj" path="res://assets/isometric/unit_models/orc_warrior/Idle_Armed/Shadow/225/Idle_Armed_Shadow_225_0009.png" id="25_nukq6"]
-[ext_resource type="Texture2D" uid="uid://n4tbx44u63yl" path="res://assets/isometric/unit_models/orc_warrior/Idle_Armed/Shadow/225/Idle_Armed_Shadow_225_0010.png" id="26_hq6es"]
-[ext_resource type="Texture2D" uid="uid://dc86ywkgb3mss" path="res://assets/isometric/unit_models/orc_warrior/Idle_Armed/Shadow/225/Idle_Armed_Shadow_225_0011.png" id="27_8ca70"]
-[ext_resource type="Texture2D" uid="uid://bpwrucc8qx3ci" path="res://assets/isometric/unit_models/orc_warrior/Idle_Armed/Shadow/225/Idle_Armed_Shadow_225_0012.png" id="28_ighkk"]
-[ext_resource type="Texture2D" uid="uid://c7j87hsjircjo" path="res://assets/isometric/unit_models/orc_warrior/Idle_Armed/Shadow/225/Idle_Armed_Shadow_225_0013.png" id="29_6ybre"]
-[ext_resource type="Texture2D" uid="uid://b8n2yvcwh5soa" path="res://assets/isometric/unit_models/orc_warrior/Idle_Armed/Shadow/225/Idle_Armed_Shadow_225_0014.png" id="30_sskp6"]
-[ext_resource type="Texture2D" uid="uid://hmkgy1vp0gq0" path="res://assets/isometric/unit_models/orc_warrior/Idle_Armed/Shadow/225/Idle_Armed_Shadow_225_0015.png" id="31_nepry"]
-[ext_resource type="Texture2D" uid="uid://chgrlx11qui21" path="res://assets/isometric/unit_models/orc_warrior/Idle_Armed/Shadow/225/Idle_Armed_Shadow_225_0016.png" id="32_5osfx"]
+[ext_resource type="Texture2D" uid="uid://8hs3am6yp20r" path="res://assets/isometric/unit_models/orc_warrior/Idle_Armed/Idle_Armed_Body_225.png" id="4_3po7s"]
 [ext_resource type="Script" uid="uid://wk0kgckda58s" path="res://components/drag_and_drop.gd" id="55_3sbfn"]
 [ext_resource type="Script" uid="uid://dssc5pe7ik6wk" path="res://components/outline_highlighter.gd" id="57_ier26"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_vgvef"]
+load_path = "res://.godot/imported/Hit_Block_Body_225_0001.png-18952443c36b4c1de2de1780234e9558.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3po7s"]
+load_path = "res://.godot/imported/Hit_Block_Body_225_0002.png-01a8b685c4fdba3dd1a2b8bbde9196bf.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0wuuu"]
+load_path = "res://.godot/imported/Hit_Block_Body_225_0003.png-61bbe80c690607b00b8d7c58defa6da2.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_w7udy"]
+load_path = "res://.godot/imported/Hit_Block_Body_225_0004.png-d1aeabf14c30c1eac484310fa87f1ff5.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_vqlpx"]
+load_path = "res://.godot/imported/Hit_Block_Body_225_0005.png-ceaf64c442af25b2daa95defe8d95641.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_l0n34"]
+load_path = "res://.godot/imported/Hit_Block_Body_225_0006.png-e7c912b0de78c5f1fca0cf4b09e30124.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5im7a"]
+load_path = "res://.godot/imported/Hit_Block_Body_225_0007.png-e9d0bbd7cfb2d803679b258881d6318b.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7jhsn"]
+load_path = "res://.godot/imported/Hit_Block_Body_225_0008.png-ed180cbbb25270bd13524f1d3b876793.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_540om"]
+load_path = "res://.godot/imported/Hit_Block_Body_225_0009.png-502ab0d98561709f8ada4b17d606a193.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1ifho"]
+load_path = "res://.godot/imported/Hit_Block_Body_225_0010.png-1783d334daf9717f5c4fc26b628ab229.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_u15f5"]
+load_path = "res://.godot/imported/Hit_Block_Body_225_0011.png-4405fbeb7bdccb98116d47280b487b3b.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_bg1qp"]
+load_path = "res://.godot/imported/Hit_Block_Body_225_0012.png-24119e417a941f48d2a812763a85325c.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8477q"]
+load_path = "res://.godot/imported/Hit_Block_Body_225_0013.png-0251d86b808131b63795ab58fa4aa536.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8viqk"]
+load_path = "res://.godot/imported/Hit_Block_Body_225_0014.png-d1ce1391f03857897c15d269becb5b9e.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5pcy6"]
+load_path = "res://.godot/imported/Hit_Block_Body_225_0015.png-e9fc9186d3790959f61371e8da6277e5.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_k1jjk"]
+load_path = "res://.godot/imported/Hit_Block_Body_225_0016.png-347022bbca9f45dfda7df693e1e18515.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xlljb"]
+load_path = "res://.godot/imported/Hit_Block_Body_225_0017.png-0781c590f16d071ba5a87daa20b073e7.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_n8yuq"]
+load_path = "res://.godot/imported/Hit_Block_Body_225_0018.png-f82d55844c61dccf2864b3d9a99e18b8.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ttot2"]
+load_path = "res://.godot/imported/Hit_Block_Body_225_0019.png-d1654d00d2512fffc3db5c5111cb1e46.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_n85hq"]
+load_path = "res://.godot/imported/Hit_Block_Body_225_0020.png-ef44c51a103beb0e92a02e075b76a78e.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_62pg8"]
+load_path = "res://.godot/imported/Idle_Armed_Body_225_0001.png-4d175b22c0d73b9b37893676935def78.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_c6blk"]
+load_path = "res://.godot/imported/Idle_Armed_Body_225_0002.png-e34766a832076bf741f073e6aa92aecd.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_84yxt"]
+load_path = "res://.godot/imported/Idle_Armed_Body_225_0003.png-c7c6232a7b902af3f94e59ae17a18e70.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_poctw"]
+load_path = "res://.godot/imported/Idle_Armed_Body_225_0004.png-9976cf6b27462dbfe0faf69961a7a9d0.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_uu2gx"]
+load_path = "res://.godot/imported/Idle_Armed_Body_225_0005.png-cc8e5c341d03890757acdf051aff2f09.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_efhjw"]
+load_path = "res://.godot/imported/Idle_Armed_Body_225_0006.png-65c06e8ff717a22fa7e8a57dda2071ec.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_omyc0"]
+load_path = "res://.godot/imported/Idle_Armed_Body_225_0007.png-07e9f9a16b884c669fd7fedded6e7a3f.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xwkqj"]
+load_path = "res://.godot/imported/Idle_Armed_Body_225_0008.png-ed625bc0bcd6481aeb97f8d0599c6067.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8iace"]
+load_path = "res://.godot/imported/Idle_Armed_Body_225_0009.png-9dadb5db03be501284a9781911ca31eb.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7hr6h"]
+load_path = "res://.godot/imported/Idle_Armed_Body_225_0010.png-a51fb9d3a0a02285307fcec81ebfd26c.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_dpru8"]
+load_path = "res://.godot/imported/Idle_Armed_Body_225_0011.png-362b0577b40543c75fae8b06084514e3.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jipoo"]
+load_path = "res://.godot/imported/Idle_Armed_Body_225_0012.png-49ac01ad6c6db394f95bd08d082a41fb.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5gxoy"]
+load_path = "res://.godot/imported/Idle_Armed_Body_225_0013.png-0b5fcf75736cd016193a2f709760296a.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_u3ytj"]
+load_path = "res://.godot/imported/Idle_Armed_Body_225_0014.png-468fa8956b8fed482d542d777261b74c.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wvnjl"]
+load_path = "res://.godot/imported/Idle_Armed_Body_225_0015.png-fbfc5249f172e1fbefe535d5989f6aa8.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_nukq6"]
+load_path = "res://.godot/imported/Idle_Armed_Body_225_0016.png-a9b80f44432cab452f87cfe811c1c090.ctex"
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xwkqj"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_uwval")
+"texture": SubResource("CompressedTexture2D_vgvef")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_ad734")
+"texture": SubResource("CompressedTexture2D_3po7s")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_3sbfn")
+"texture": SubResource("CompressedTexture2D_0wuuu")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_cdnpv")
+"texture": SubResource("CompressedTexture2D_w7udy")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_ier26")
+"texture": SubResource("CompressedTexture2D_vqlpx")
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_rml14")
+"texture": SubResource("CompressedTexture2D_l0n34")
 }, {
 "duration": 1.0,
-"texture": ExtResource("8_85q37")
+"texture": SubResource("CompressedTexture2D_5im7a")
 }, {
 "duration": 1.0,
-"texture": ExtResource("9_xwecb")
+"texture": SubResource("CompressedTexture2D_7jhsn")
 }, {
 "duration": 1.0,
-"texture": ExtResource("10_dvltv")
+"texture": SubResource("CompressedTexture2D_540om")
 }, {
 "duration": 1.0,
-"texture": ExtResource("11_gl61b")
+"texture": SubResource("CompressedTexture2D_1ifho")
 }, {
 "duration": 1.0,
-"texture": ExtResource("12_48fop")
+"texture": SubResource("CompressedTexture2D_u15f5")
 }, {
 "duration": 1.0,
-"texture": ExtResource("13_gthpo")
+"texture": SubResource("CompressedTexture2D_bg1qp")
 }, {
 "duration": 1.0,
-"texture": ExtResource("14_bwl76")
+"texture": SubResource("CompressedTexture2D_8477q")
 }, {
 "duration": 1.0,
-"texture": ExtResource("15_gppyw")
+"texture": SubResource("CompressedTexture2D_8viqk")
 }, {
 "duration": 1.0,
-"texture": ExtResource("16_e5o08")
+"texture": SubResource("CompressedTexture2D_5pcy6")
 }, {
 "duration": 1.0,
-"texture": ExtResource("17_cf73d")
+"texture": SubResource("CompressedTexture2D_k1jjk")
 }, {
 "duration": 1.0,
-"texture": ExtResource("18_ntlns")
+"texture": SubResource("CompressedTexture2D_xlljb")
 }, {
 "duration": 1.0,
-"texture": ExtResource("19_ntyvj")
+"texture": SubResource("CompressedTexture2D_n8yuq")
 }, {
 "duration": 1.0,
-"texture": ExtResource("20_104e1")
+"texture": SubResource("CompressedTexture2D_ttot2")
 }, {
 "duration": 1.0,
-"texture": ExtResource("21_imjy6")
+"texture": SubResource("CompressedTexture2D_n85hq")
 }],
 "loop": true,
 "name": &"block_armed_225",
@@ -132,57 +189,105 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_bg1qp")
+"texture": SubResource("CompressedTexture2D_62pg8")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_8477q")
+"texture": SubResource("CompressedTexture2D_c6blk")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_8viqk")
+"texture": SubResource("CompressedTexture2D_84yxt")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_5pcy6")
+"texture": SubResource("CompressedTexture2D_poctw")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_k1jjk")
+"texture": SubResource("CompressedTexture2D_uu2gx")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_xlljb")
+"texture": SubResource("CompressedTexture2D_efhjw")
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_n8yuq")
+"texture": SubResource("CompressedTexture2D_omyc0")
 }, {
 "duration": 1.0,
-"texture": ExtResource("8_ttot2")
+"texture": SubResource("CompressedTexture2D_xwkqj")
 }, {
 "duration": 1.0,
-"texture": ExtResource("9_n85hq")
+"texture": SubResource("CompressedTexture2D_8iace")
 }, {
 "duration": 1.0,
-"texture": ExtResource("10_62pg8")
+"texture": SubResource("CompressedTexture2D_7hr6h")
 }, {
 "duration": 1.0,
-"texture": ExtResource("11_c6blk")
+"texture": SubResource("CompressedTexture2D_dpru8")
 }, {
 "duration": 1.0,
-"texture": ExtResource("12_84yxt")
+"texture": SubResource("CompressedTexture2D_jipoo")
 }, {
 "duration": 1.0,
-"texture": ExtResource("13_poctw")
+"texture": SubResource("CompressedTexture2D_5gxoy")
 }, {
 "duration": 1.0,
-"texture": ExtResource("14_uu2gx")
+"texture": SubResource("CompressedTexture2D_u3ytj")
 }, {
 "duration": 1.0,
-"texture": ExtResource("15_efhjw")
+"texture": SubResource("CompressedTexture2D_wvnjl")
 }, {
 "duration": 1.0,
-"texture": ExtResource("16_omyc0")
+"texture": SubResource("CompressedTexture2D_nukq6")
 }],
 "loop": true,
 "name": &"idle_armed_225",
 "speed": 10.0
 }]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_hq6es"]
+load_path = "res://.godot/imported/Idle_Armed_Shadow_225_0001.png-3e579a06bd65c71c86599e849fb26147.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8ca70"]
+load_path = "res://.godot/imported/Idle_Armed_Shadow_225_0002.png-2a322dda6b322634b50d4d96b6b153b0.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ighkk"]
+load_path = "res://.godot/imported/Idle_Armed_Shadow_225_0003.png-8292ead4536b2b36133af259d01b72fe.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6ybre"]
+load_path = "res://.godot/imported/Idle_Armed_Shadow_225_0004.png-4d8039566160d68186de19b98482e413.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_sskp6"]
+load_path = "res://.godot/imported/Idle_Armed_Shadow_225_0005.png-b35f15b49d5a68bc8ed04d1126de4f51.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_nepry"]
+load_path = "res://.godot/imported/Idle_Armed_Shadow_225_0006.png-ff10c6bf1c776b46f549022ec666e55f.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5osfx"]
+load_path = "res://.godot/imported/Idle_Armed_Shadow_225_0007.png-bea3b202f45dc906bf2c3ddfddf38fe4.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7e47w"]
+load_path = "res://.godot/imported/Idle_Armed_Shadow_225_0008.png-88e3925ca5a51131ddb5890eca823d26.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ua554"]
+load_path = "res://.godot/imported/Idle_Armed_Shadow_225_0009.png-2c9f4ca6c88e28dedb7bb0716f0e0060.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_hmm6x"]
+load_path = "res://.godot/imported/Idle_Armed_Shadow_225_0010.png-8fe6c17e4210e9f78cf1b4ece9802513.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_c11ie"]
+load_path = "res://.godot/imported/Idle_Armed_Shadow_225_0011.png-8ecd6de61b09327eabe0470a4fa58e2c.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ewr48"]
+load_path = "res://.godot/imported/Idle_Armed_Shadow_225_0012.png-17999f9d344406aae097899181ebcde4.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_uwval"]
+load_path = "res://.godot/imported/Idle_Armed_Shadow_225_0013.png-936ceb768e25c91ab9560b7775b4bf5a.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ad734"]
+load_path = "res://.godot/imported/Idle_Armed_Shadow_225_0014.png-d6f8050964912ce96833e9b2fc024595.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3sbfn"]
+load_path = "res://.godot/imported/Idle_Armed_Shadow_225_0015.png-fa52cc49b6bf37c82cfd8c3bd020e64e.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_cdnpv"]
+load_path = "res://.godot/imported/Idle_Armed_Shadow_225_0016.png-a7aabb3ca0ad2b017f7c8b606577e23f.ctex"
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7e47w"]
 animations = [{
@@ -193,57 +298,61 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("17_xwkqj")
+"texture": SubResource("CompressedTexture2D_hq6es")
 }, {
 "duration": 1.0,
-"texture": ExtResource("18_8iace")
+"texture": SubResource("CompressedTexture2D_8ca70")
 }, {
 "duration": 1.0,
-"texture": ExtResource("19_7hr6h")
+"texture": SubResource("CompressedTexture2D_ighkk")
 }, {
 "duration": 1.0,
-"texture": ExtResource("20_dpru8")
+"texture": SubResource("CompressedTexture2D_6ybre")
 }, {
 "duration": 1.0,
-"texture": ExtResource("21_jipoo")
+"texture": SubResource("CompressedTexture2D_sskp6")
 }, {
 "duration": 1.0,
-"texture": ExtResource("22_5gxoy")
+"texture": SubResource("CompressedTexture2D_nepry")
 }, {
 "duration": 1.0,
-"texture": ExtResource("23_u3ytj")
+"texture": SubResource("CompressedTexture2D_5osfx")
 }, {
 "duration": 1.0,
-"texture": ExtResource("24_wvnjl")
+"texture": SubResource("CompressedTexture2D_7e47w")
 }, {
 "duration": 1.0,
-"texture": ExtResource("25_nukq6")
+"texture": SubResource("CompressedTexture2D_ua554")
 }, {
 "duration": 1.0,
-"texture": ExtResource("26_hq6es")
+"texture": SubResource("CompressedTexture2D_hmm6x")
 }, {
 "duration": 1.0,
-"texture": ExtResource("27_8ca70")
+"texture": SubResource("CompressedTexture2D_c11ie")
 }, {
 "duration": 1.0,
-"texture": ExtResource("28_ighkk")
+"texture": SubResource("CompressedTexture2D_ewr48")
 }, {
 "duration": 1.0,
-"texture": ExtResource("29_6ybre")
+"texture": SubResource("CompressedTexture2D_uwval")
 }, {
 "duration": 1.0,
-"texture": ExtResource("30_sskp6")
+"texture": SubResource("CompressedTexture2D_ad734")
 }, {
 "duration": 1.0,
-"texture": ExtResource("31_nepry")
+"texture": SubResource("CompressedTexture2D_3sbfn")
 }, {
 "duration": 1.0,
-"texture": ExtResource("32_5osfx")
+"texture": SubResource("CompressedTexture2D_cdnpv")
 }],
 "loop": true,
 "name": &"idle_armed_shadow_225",
 "speed": 10.0
 }]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3po7s"]
+atlas = ExtResource("4_3po7s")
+region = Rect2(0, 0, 256, 256)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bg1qp"]
 size = Vector2(65, 139)
@@ -271,6 +380,8 @@ border_width_bottom = 2
 border_color = Color(0.23137255, 0.11372549, 0.09803922, 1)
 
 [node name="Unit" type="Area2D"]
+z_index = 1
+y_sort_enabled = true
 script = ExtResource("1_8iace")
 stats = ExtResource("2_ad734")
 metadata/_edit_group_ = true
@@ -299,11 +410,10 @@ frame_progress = 0.61926246
 
 [node name="Placeholder" type="Sprite2D" parent="Visuals"]
 position = Vector2(0, -23)
-texture = ExtResource("1_bg1qp")
+texture = SubResource("AtlasTexture_3po7s")
 region_rect = Rect2(0, 0, 256, 256)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(9.5, -25.5)
 shape = SubResource("RectangleShape2D_bg1qp")
 

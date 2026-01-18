@@ -1,0 +1,149 @@
+[gd_scene load_steps=12 format=3 uid="uid://yo4lcja0velw"]
+
+[ext_resource type="Script" uid="uid://bl7bjer5puhgr" path="res://scenes/unit_card/unit_card.gd" id="1_2ee4v"]
+[ext_resource type="Texture2D" uid="uid://gb1du6ocfln6" path="res://assets/isometric/icon/energy_icon.png" id="1_efctb"]
+[ext_resource type="Texture2D" uid="uid://bo1hxqwkjve54" path="res://assets/isometric/unit_models/orc_warrior/Selection/Idle_Unarmed_Body.png" id="2_2ee4v"]
+[ext_resource type="Resource" uid="uid://ojtrw5fc8ohj" path="res://data/player/player_stats.tres" id="2_2yriv"]
+[ext_resource type="LabelSettings" uid="uid://demkg5o6vf37y" path="res://assets/fonts/basic_label_settings.tres" id="3_8ee35"]
+[ext_resource type="Resource" uid="uid://dvug8nvq2op1y" path="res://resources/units/orc.tres" id="3_27mlq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2yriv"]
+resource_local_to_scene = true
+bg_color = Color(0.007843138, 0.4392157, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_27mlq"]
+font_size = 24
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i2qy8"]
+resource_local_to_scene = true
+atlas = ExtResource("2_2ee4v")
+region = Rect2(0, 0, 512, 512)
+margin = Rect2(0, -64, 0, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_4b8rp"]
+font_size = 24
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_00nd2"]
+resource_local_to_scene = true
+bg_color = Color(1, 1, 1, 0)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.007843138, 0.4392157, 0, 1)
+
+[node name="UnitCard" type="Button"]
+custom_minimum_size = Vector2(156, 192)
+offset_right = 156.0
+offset_bottom = 192.0
+focus_mode = 0
+script = ExtResource("1_2ee4v")
+player_stats = ExtResource("2_2yriv")
+unit_stats = ExtResource("3_27mlq")
+
+[node name="Backdrop" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.18, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Backdrop"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 41.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ResourceColor" type="Panel" parent="Backdrop/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_2yriv")
+
+[node name="ResourceSection" type="HBoxContainer" parent="Backdrop/VBoxContainer/ResourceColor"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.5
+offset_top = -17.0
+offset_right = 25.5
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 0
+
+[node name="ResourceCost" type="Label" parent="Backdrop/VBoxContainer/ResourceColor/ResourceSection"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+text = "100"
+label_settings = SubResource("LabelSettings_27mlq")
+horizontal_alignment = 1
+
+[node name="Energy" type="TextureRect" parent="Backdrop/VBoxContainer/ResourceColor/ResourceSection"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("1_efctb")
+expand_mode = 4
+stretch_mode = 5
+
+[node name="UnitImage" type="TextureRect" parent="Backdrop/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(156, 110)
+layout_mode = 2
+size_flags_vertical = 4
+texture = SubResource("AtlasTexture_i2qy8")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="UnitName" type="Label" parent="Backdrop/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+text = "Orc"
+label_settings = ExtResource("3_8ee35")
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Backdrop/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/separation = 12
+
+[node name="UnitCount" type="Label" parent="Backdrop/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+text = "8"
+label_settings = ExtResource("3_8ee35")
+
+[node name="QuantifierLabel" type="Label" parent="Backdrop/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "x"
+label_settings = SubResource("LabelSettings_4b8rp")
+
+[node name="Border" type="Panel" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_00nd2")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]
