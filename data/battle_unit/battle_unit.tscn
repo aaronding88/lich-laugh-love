@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://d2lrrtrcqq0f8"]
+
+[ext_resource type="Script" uid="uid://dx43ostus4g" path="res://data/battle_unit/battle_unit.gd" id="1_34dv8"]
+[ext_resource type="Texture2D" uid="uid://8hs3am6yp20r" path="res://assets/isometric/unit_models/orc_warrior/Idle_Armed/Idle_Armed_Body_225.png" id="1_bkft5"]
+[ext_resource type="PackedScene" uid="uid://du2t2naw5eu6q" path="res://scenes/health_bar/health_bar.tscn" id="2_7qu1b"]
+[ext_resource type="SpriteFrames" uid="uid://dkn1iyj2rta6h" path="res://data/enemies/halberd/halberd_sprite_frame.tres" id="3_34dv8"]
+[ext_resource type="PackedScene" uid="uid://eo54rcxb73dx" path="res://scenes/fatigue_bar/fatigue_bar.tscn" id="3_omcbh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_34dv8"]
+size = Vector2(21, 89)
+
+[node name="BattleUnit" type="Area2D" groups=["units"]]
+script = ExtResource("1_34dv8")
+
+[node name="Skin" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("1_bkft5")
+region_enabled = true
+region_rect = Rect2(0, 0, 256, 256)
+
+[node name="AnimatedSkin" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("3_34dv8")
+speed_scale = 0.6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(5.5, 3.5)
+shape = SubResource("RectangleShape2D_34dv8")
+
+[node name="HealthBar" parent="." instance=ExtResource("2_7qu1b")]
+offset_left = -39.0
+offset_top = -66.0
+offset_right = 56.0
+offset_bottom = -60.0
+
+[node name="FatigueBar" parent="." instance=ExtResource("3_omcbh")]
+offset_left = -39.0
+offset_top = -59.0
+offset_right = 56.0
+offset_bottom = -53.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="UnitAI" type="Node" parent="."]

@@ -2,6 +2,9 @@ class_name UnitStats
 extends Resource
 
 enum RARITY {COMMON, UNCOMMON, RARE, LEGENDARY}
+enum Team {PLAYER, ENEMY}
+
+
 
 const RARITY_COLORS := {
 	RARITY.COMMON: Color("027000"),
@@ -22,7 +25,11 @@ const Z_INDEX := 1
 @export_category("Visuals")
 @export var unit_texture: Texture2D
 @export var icon_texture: Texture2D
+@export var sprite_frames: SpriteFrames
 @export var spritesheet_size: Vector2i
+
+@export_category("Battle")
+@export var team: Team
 
 func _to_string() -> String:
 	return name

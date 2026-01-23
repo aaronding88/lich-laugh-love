@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="UnitStats" load_steps=6 format=3 uid="uid://dvug8nvq2op1y"]
+
+[ext_resource type="Texture2D" uid="uid://bo1hxqwkjve54" path="res://assets/isometric/unit_models/orc_warrior/Selection/Idle_Unarmed_Body.png" id="1_svcku"]
+[ext_resource type="Script" uid="uid://bn7hlrg1pey0v" path="res://data/units/unit_stats.gd" id="2_ps6a1"]
+[ext_resource type="SpriteFrames" uid="uid://dlgc1yeeqmpty" path="res://data/units/orc/orc_sprite_frame.tres" id="3_af2rk"]
+[ext_resource type="Texture2D" uid="uid://8hs3am6yp20r" path="res://assets/isometric/unit_models/orc_warrior/Idle_Armed/Idle_Armed_Body_225.png" id="4_ye8tw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ylgc"]
+atlas = ExtResource("4_ye8tw")
+region = Rect2(0, 0, 256, 256)
+
+[resource]
+script = ExtResource("2_ps6a1")
+name = "Orc"
+resource_cost = 100
+rarity = 1
+unit_texture = SubResource("AtlasTexture_4ylgc")
+icon_texture = ExtResource("1_svcku")
+sprite_frames = ExtResource("3_af2rk")
+metadata/_custom_type_script = "uid://bn7hlrg1pey0v"

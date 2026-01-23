@@ -1,9 +1,11 @@
-[gd_scene load_steps=67 format=3 uid="uid://begerpkge6ear"]
+[gd_scene load_steps=65 format=3 uid="uid://begerpkge6ear"]
 
 [ext_resource type="Script" uid="uid://ctljnq287fqba" path="res://scenes/unit/unit.gd" id="1_8iace"]
-[ext_resource type="Resource" uid="uid://dvug8nvq2op1y" path="res://resources/units/orc.tres" id="2_ad734"]
+[ext_resource type="Resource" uid="uid://dvug8nvq2op1y" path="res://data/units/orc/orc.tres" id="2_ad734"]
 [ext_resource type="Material" uid="uid://djrscqxmh7ufg" path="res://assets/shaders/2d_outline_shader.tres" id="3_ier26"]
 [ext_resource type="Texture2D" uid="uid://8hs3am6yp20r" path="res://assets/isometric/unit_models/orc_warrior/Idle_Armed/Idle_Armed_Body_225.png" id="4_3po7s"]
+[ext_resource type="PackedScene" uid="uid://du2t2naw5eu6q" path="res://scenes/health_bar/health_bar.tscn" id="5_w7udy"]
+[ext_resource type="PackedScene" uid="uid://eo54rcxb73dx" path="res://scenes/fatigue_bar/fatigue_bar.tscn" id="6_vqlpx"]
 [ext_resource type="Script" uid="uid://wk0kgckda58s" path="res://components/drag_and_drop.gd" id="55_3sbfn"]
 [ext_resource type="Script" uid="uid://dssc5pe7ik6wk" path="res://components/outline_highlighter.gd" id="57_ier26"]
 
@@ -350,36 +352,14 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3po7s"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ylgc"]
 atlas = ExtResource("4_3po7s")
 region = Rect2(0, 0, 256, 256)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bg1qp"]
 size = Vector2(65, 139)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xwkqj"]
-bg_color = Color(0.23137255, 0.11372549, 0.09803922, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8iace"]
-bg_color = Color(0, 0.73333335, 0.3137255, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.23137255, 0.11372549, 0.09803922, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7hr6h"]
-bg_color = Color(0.23137255, 0.11372549, 0.09803922, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dpru8"]
-bg_color = Color(0.7145129, 0.58807546, 0.07675909, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.23137255, 0.11372549, 0.09803922, 1)
-
-[node name="Unit" type="Area2D"]
+[node name="Unit" type="Area2D" groups=["units"]]
 z_index = 1
 y_sort_enabled = true
 script = ExtResource("1_8iace")
@@ -410,32 +390,17 @@ frame_progress = 0.61926246
 
 [node name="Placeholder" type="Sprite2D" parent="Visuals"]
 position = Vector2(0, -23)
-texture = SubResource("AtlasTexture_3po7s")
+texture = SubResource("AtlasTexture_4ylgc")
 region_rect = Rect2(0, 0, 256, 256)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(9.5, -25.5)
 shape = SubResource("RectangleShape2D_bg1qp")
 
-[node name="HealthBar" type="ProgressBar" parent="."]
-offset_left = -44.0
-offset_top = -116.0
-offset_right = 51.0
-offset_bottom = -110.0
-theme_override_styles/background = SubResource("StyleBoxFlat_xwkqj")
-theme_override_styles/fill = SubResource("StyleBoxFlat_8iace")
-value = 40.0
-show_percentage = false
+[node name="HealthBar" parent="." instance=ExtResource("5_w7udy")]
 
-[node name="FatigueBar" type="ProgressBar" parent="."]
-offset_left = -44.0
-offset_top = -109.0
-offset_right = 51.0
-offset_bottom = -103.0
-theme_override_styles/background = SubResource("StyleBoxFlat_7hr6h")
-theme_override_styles/fill = SubResource("StyleBoxFlat_dpru8")
-value = 12.0
-show_percentage = false
+[node name="FatigueBar" parent="." instance=ExtResource("6_vqlpx")]
 
 [node name="DragAndDrop" type="Node" parent="." node_paths=PackedStringArray("target")]
 script = ExtResource("55_3sbfn")

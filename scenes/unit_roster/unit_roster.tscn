@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cyoloppcivjho"]
+[gd_scene load_steps=6 format=3 uid="uid://cyoloppcivjho"]
 
 [ext_resource type="Script" uid="uid://b2uppfcobkqkw" path="res://scenes/unit_roster/unit_roster.gd" id="1_eja7e"]
 [ext_resource type="PackedScene" uid="uid://yo4lcja0velw" path="res://scenes/unit_card/unit_card.tscn" id="1_hnlxy"]
 [ext_resource type="Resource" uid="uid://ojtrw5fc8ohj" path="res://data/player/player_stats.tres" id="3_4urg5"]
-[ext_resource type="Resource" uid="uid://dy0r3xqgqrkya" path="res://resources/units/halberd.tres" id="3_eja7e"]
+[ext_resource type="Resource" uid="uid://dy0r3xqgqrkya" path="res://data/enemies/halberd/halberd.tres" id="3_eja7e"]
+[ext_resource type="Script" uid="uid://c4akt01vg373a" path="res://custom_nodes/scene_spawner.gd" id="5_kejr3"]
 
 [node name="UnitRoster" type="HBoxContainer"]
 anchors_preset = 7
@@ -31,3 +32,8 @@ layout_mode = 2
 [node name="UnitCard3" parent="." instance=ExtResource("1_hnlxy")]
 layout_mode = 2
 unit_stats = ExtResource("3_eja7e")
+
+[node name="SceneSpawner" type="Node" parent="."]
+script = ExtResource("5_kejr3")
+scene = ExtResource("1_hnlxy")
+metadata/_custom_type_script = "uid://c4akt01vg373a"

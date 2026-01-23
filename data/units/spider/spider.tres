@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="UnitStats" load_steps=7 format=3 uid="uid://cjgmkno4a2hwk"]
+
+[ext_resource type="Texture2D" uid="uid://bxrg04l2mgajd" path="res://assets/isometric/unit_models/spider/selection/Defense_Body_180.png" id="1_5la5j"]
+[ext_resource type="Script" uid="uid://bn7hlrg1pey0v" path="res://data/units/unit_stats.gd" id="2_w3503"]
+[ext_resource type="SpriteFrames" uid="uid://dav3t20gy0h7x" path="res://data/units/spider/spider_sprite_frame.tres" id="3_uw5j2"]
+[ext_resource type="Texture2D" uid="uid://sijld23w4ygb" path="res://assets/isometric/unit_models/spider/idle_heavy/Idle_Long_Body_270.png" id="4_rlb32"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_86a3s"]
+atlas = ExtResource("1_5la5j")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_06uy6"]
+atlas = ExtResource("4_rlb32")
+region = Rect2(0, 0, 256, 256)
+
+[resource]
+script = ExtResource("2_w3503")
+name = "Spider"
+resource_cost = 50
+unit_texture = SubResource("AtlasTexture_06uy6")
+icon_texture = SubResource("AtlasTexture_86a3s")
+sprite_frames = ExtResource("3_uw5j2")
+metadata/_custom_type_script = "uid://bn7hlrg1pey0v"

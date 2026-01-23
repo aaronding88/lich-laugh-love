@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="UnitStats" load_steps=7 format=3 uid="uid://dy0r3xqgqrkya"]
+
+[ext_resource type="Texture2D" uid="uid://v46g8n0qm2gf" path="res://assets/isometric/unit_models/halberd/selection/Idle_Body.png" id="1_kdagd"]
+[ext_resource type="Script" uid="uid://bn7hlrg1pey0v" path="res://data/units/unit_stats.gd" id="2_3s5uq"]
+[ext_resource type="SpriteFrames" uid="uid://dkn1iyj2rta6h" path="res://data/enemies/halberd/halberd_sprite_frame.tres" id="3_oob6c"]
+[ext_resource type="Texture2D" uid="uid://dq2nwpw0r5e5h" path="res://assets/isometric/unit_models/halberd/Idle_Body_225.png" id="4_8ieip"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s2it6"]
+atlas = ExtResource("1_kdagd")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0em0a"]
+atlas = ExtResource("4_8ieip")
+region = Rect2(0, 0, 256, 256)
+
+[resource]
+script = ExtResource("2_3s5uq")
+name = "Halberd"
+resource_cost = 5
+unit_texture = SubResource("AtlasTexture_0em0a")
+icon_texture = SubResource("AtlasTexture_s2it6")
+sprite_frames = ExtResource("3_oob6c")
+team = 1
+metadata/_custom_type_script = "uid://bn7hlrg1pey0v"
