@@ -17,9 +17,9 @@ func initialize(grid: UnitGrid, area: PlayArea) -> void:
 	astar_grid.region = full_grid_region
 	astar_grid.cell_size = DungeonRoom.CELL_SIZE
 	astar_grid.diagonal_mode = AStarGrid2D.DIAGONAL_MODE_NEVER
-	astar_grid.cell_shape = AStarGrid2D.CellShape.CELL_SHAPE_ISOMETRIC_RIGHT
+	astar_grid.cell_shape = AStarGrid2D.CellShape.CELL_SHAPE_ISOMETRIC_DOWN
 	astar_grid.update()
-	block_tiles_outside_arena()
+	#block_tiles_outside_arena()
 	battle_grid.unit_grid_changed.connect(update_occupied_tiles)
 	
 	# Set up solid point outside rect
@@ -27,14 +27,15 @@ func initialize(grid: UnitGrid, area: PlayArea) -> void:
 # TODO: maybe there's a better way than filling the whole arena?
 func update_occupied_tiles() -> void:
 	astar_grid.fill_solid_region(full_grid_region, false)
-	block_tiles_outside_arena()
+	#block_tiles_outside_arena()
 	for id: Vector2i in battle_grid.get_all_occupied_tiles():
 		astar_grid.set_point_solid(id)
 
+## @deprecated: Don't need to block outside arena, but still maybe valuable
+## to use later
 func block_tiles_outside_arena() -> void:
 	var rect := full_grid_region
 
-	# TODO: We'll want to make this a little more robust
 	for x in rect.size.x:
 		for y in rect.size.y:
 			var cell := Vector2i(x, y)

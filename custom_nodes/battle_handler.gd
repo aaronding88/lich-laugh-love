@@ -5,10 +5,10 @@ signal player_won
 signal enemy_won
 
 const ENEMY_TEST_POSITIONS := [
-	Vector2i(1, 7),
-	Vector2i(2, 9),
-	Vector2i(3, 10),
-	Vector2i(4, 11)
+	Vector2i(1, 5),
+	Vector2i(2, 5),
+	Vector2i(3, 5),
+	Vector2i(4, 5)
 ]
 
 const ENEMY := preload("res://data/enemies/halberd/halberd.tres")
