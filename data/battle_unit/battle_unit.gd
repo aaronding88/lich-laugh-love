@@ -29,11 +29,4 @@ func set_animation(animation_name: String, velocity = Vector2.ZERO) -> void:
 	animation_tree.get("parameters/playback").travel(animation_name)
 	animation_tree.set("parameters/idle/blend_position", Vector2(velocity))
 	animation_tree.set("parameters/running/blend_position", Vector2(velocity))
-	
-func face(direction_to_face: Vector2) -> void:
-	# There must be a way to set every parameter
-	var test := Vector2(0, 1)
-	animation_tree.set("parameters/idle/blend_position", Vector2(test))
-	animation_tree.set("parameters/running/blend_position", Vector2(test))
-
-	
+	animation_tree.set("parameters/attack/blend_position", Vector2(velocity))
