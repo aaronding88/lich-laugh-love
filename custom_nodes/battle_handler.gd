@@ -30,16 +30,21 @@ func _ready() -> void:
 	
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("test1"):
-		var new_pos := UnitNavigation.get_next_position(player_test, player_target)
-		if new_pos == Vector2(-1, -1):
-			return
-		player_test.create_tween().tween_property(player_test, "global_position", new_pos, 0.5)
+		var ai_unit := get_tree().get_nodes_in_group("player_units")[0] as BattleUnit
+		ai_unit.unit_ai.enabled = true
 		
 	if event.is_action_pressed("test2"):
 		var new_pos := UnitNavigation.get_next_position(enemy_test, enemy_target)
 		if new_pos == Vector2(-1, -1):
 			return
-		enemy_test.create_tween().tween_property(enemy_test, "global_position", new_pos, 0.5)
+		var new_pos_tile_vector := game_area.get_tile_from_global(new_pos)
+		var old_pos_tile_vector := game_area.get_tile_from_global(enemy_test.global_position)
+		var direction := new_pos_tile_vector -old_pos_tile_vector
+
+		var enemy_tween = enemy_test.create_tween()
+		enemy_tween.tween_property(enemy_test, "global_position", new_pos, 0.5)
+		enemy_tween.tween_callback(enemy_test.set_animation.bind("idle", direction))
+		enemy_test.set_animation("running", direction)
 		
 	if event.is_action_pressed("test3"):
 		get_tree().call_group("player_units", "queue_free")

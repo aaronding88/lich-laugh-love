@@ -14,6 +14,7 @@ const RARITY_COLORS := {
 }
 
 const Z_INDEX := 1
+const MOVE_ONE_TILE_SPEED := 1.0
 
 @export var name: String
 

@@ -1,9 +1,11 @@
-[gd_scene load_steps=30 format=3 uid="uid://d2lrrtrcqq0f8"]
+[gd_scene load_steps=32 format=3 uid="uid://d2lrrtrcqq0f8"]
 
 [ext_resource type="Script" uid="uid://dx43ostus4g" path="res://data/battle_unit/battle_unit.gd" id="1_34dv8"]
 [ext_resource type="PackedScene" uid="uid://du2t2naw5eu6q" path="res://scenes/health_bar/health_bar.tscn" id="2_7qu1b"]
 [ext_resource type="SpriteFrames" uid="uid://dlgc1yeeqmpty" path="res://data/units/orc/orc_sprite_frame.tres" id="2_omcbh"]
 [ext_resource type="PackedScene" uid="uid://eo54rcxb73dx" path="res://scenes/fatigue_bar/fatigue_bar.tscn" id="3_omcbh"]
+[ext_resource type="Script" uid="uid://7i1h6sjxf8p7" path="res://components/finite_state_machine.gd" id="5_omcbh"]
+[ext_resource type="Script" uid="uid://bu3c73bgnsk4s" path="res://data/battle_unit/ai/unit_ai.gd" id="6_34dv8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_34dv8"]
 size = Vector2(21, 89)
@@ -61,7 +63,91 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 1, 1.5),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [0, 15, 15]
+"values": [0, 23, 15]
+}
+
+[sub_resource type="Animation" id="Animation_0scxy"]
+resource_name = "idle_left"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSkin:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"idle_left"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSkin:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 15]
+}
+
+[sub_resource type="Animation" id="Animation_grfiu"]
+resource_name = "idle_right"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSkin:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"idle_right"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSkin:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 15]
+}
+
+[sub_resource type="Animation" id="Animation_iy0h6"]
+resource_name = "idle_up"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSkin:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"idle_up"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSkin:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 15]
 }
 
 [sub_resource type="Animation" id="Animation_34dv8"]
@@ -180,90 +266,6 @@ tracks/1/keys = {
 "values": [0, 23]
 }
 
-[sub_resource type="Animation" id="Animation_iy0h6"]
-resource_name = "idle_up"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSkin:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"idle_up"]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSkin:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0, 15]
-}
-
-[sub_resource type="Animation" id="Animation_0scxy"]
-resource_name = "idle_left"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSkin:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"idle_left"]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSkin:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0, 15]
-}
-
-[sub_resource type="Animation" id="Animation_grfiu"]
-resource_name = "idle_right"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSkin:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"idle_right"]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSkin:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0, 15]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_34dv8"]
 _data = {
 &"RESET": SubResource("Animation_omcbh"),
@@ -291,13 +293,15 @@ animation = &"idle_right"
 
 [sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_omcbh"]
 blend_point_0/node = SubResource("AnimationNodeAnimation_7qu1b")
-blend_point_0/pos = Vector2(0, -1)
+blend_point_0/pos = Vector2(0, 1)
 blend_point_1/node = SubResource("AnimationNodeAnimation_omcbh")
-blend_point_1/pos = Vector2(0, 1)
+blend_point_1/pos = Vector2(0, -1)
 blend_point_2/node = SubResource("AnimationNodeAnimation_iy0h6")
 blend_point_2/pos = Vector2(-1, 0)
 blend_point_3/node = SubResource("AnimationNodeAnimation_0scxy")
 blend_point_3/pos = Vector2(1, 0)
+x_label = "y"
+y_label = "x"
 blend_mode = 1
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_34dv8"]
@@ -314,13 +318,15 @@ animation = &"run_right"
 
 [sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_iy0h6"]
 blend_point_0/node = SubResource("AnimationNodeAnimation_34dv8")
-blend_point_0/pos = Vector2(0, 1)
+blend_point_0/pos = Vector2(0, -1)
 blend_point_1/node = SubResource("AnimationNodeAnimation_gle24")
 blend_point_1/pos = Vector2(-1, 0)
 blend_point_2/node = SubResource("AnimationNodeAnimation_qkcv8")
-blend_point_2/pos = Vector2(0, -1)
+blend_point_2/pos = Vector2(0, 1)
 blend_point_3/node = SubResource("AnimationNodeAnimation_gljbh")
 blend_point_3/pos = Vector2(1, 0)
+x_label = "y"
+y_label = "x"
 blend_mode = 1
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_grfiu"]
@@ -332,13 +338,14 @@ advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_grfiu"]
 states/idle/node = SubResource("AnimationNodeBlendSpace2D_omcbh")
-states/idle/position = Vector2(346, 168)
+states/idle/position = Vector2(377.5, 105)
 states/running/node = SubResource("AnimationNodeBlendSpace2D_iy0h6")
-states/running/position = Vector2(614, 100)
+states/running/position = Vector2(613.5, 100)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_grfiu"), "idle", "running", SubResource("AnimationNodeStateMachineTransition_7qu1b"), "running", "idle", SubResource("AnimationNodeStateMachineTransition_omcbh")]
 
 [node name="BattleUnit" type="Area2D" groups=["units"]]
-position = Vector2(108, 107)
+z_index = 1
+y_sort_enabled = true
 script = ExtResource("1_34dv8")
 
 [node name="AnimatedSkin" type="AnimatedSprite2D" parent="."]
@@ -350,16 +357,24 @@ position = Vector2(5.5, 3.5)
 shape = SubResource("RectangleShape2D_34dv8")
 
 [node name="HealthBar" parent="." instance=ExtResource("2_7qu1b")]
-offset_left = -39.0
-offset_top = -66.0
-offset_right = 56.0
-offset_bottom = -60.0
+offset_left = -47.0
+offset_top = -84.0
+offset_right = 48.0
+offset_bottom = -78.0
 
 [node name="FatigueBar" parent="." instance=ExtResource("3_omcbh")]
-offset_left = -39.0
-offset_top = -59.0
-offset_right = 56.0
-offset_bottom = -53.0
+offset_left = -47.0
+offset_top = -77.0
+offset_right = 48.0
+offset_bottom = -71.0
+
+[node name="FiniteStateMachineDebugLabel" type="Label" parent="."]
+offset_left = -60.0
+offset_top = -108.0
+offset_right = 67.0
+offset_bottom = -85.0
+size_flags_horizontal = 4
+horizontal_alignment = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -369,7 +384,15 @@ libraries = {
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_grfiu")
 anim_player = NodePath("../AnimationPlayer")
-parameters/idle/blend_position = Vector2(0, -1)
-parameters/running/blend_position = Vector2(-0.33773583, 0.07531381)
+parameters/idle/blend_position = Vector2(128, 1)
+parameters/running/blend_position = Vector2(128, 256)
 
-[node name="UnitAI" type="Node" parent="."]
+[node name="FiniteStateMachine" type="Node" parent="." node_paths=PackedStringArray("debug_label")]
+script = ExtResource("5_omcbh")
+debug_label = NodePath("../FiniteStateMachineDebugLabel")
+metadata/_custom_type_script = "uid://7i1h6sjxf8p7"
+
+[node name="UnitAI" type="Node" parent="." node_paths=PackedStringArray("actor", "fsm")]
+script = ExtResource("6_34dv8")
+actor = NodePath("..")
+fsm = NodePath("../FiniteStateMachine")

@@ -67,3 +67,7 @@ func get_next_position(moving_unit: BattleUnit, target_unit: BattleUnit) -> Vect
 	
 	return game_area.get_global_from_tile(next_tile)
 	
+func vector_to_face(new_pos: Vector2, unit_position: Vector2) -> Vector2:
+	var new_pos_tile_vector := game_area.get_tile_from_global(new_pos)
+	var old_pos_tile_vector := game_area.get_tile_from_global(unit_position)
+	return new_pos_tile_vector - old_pos_tile_vector

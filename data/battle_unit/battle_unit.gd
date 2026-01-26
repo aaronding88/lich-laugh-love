@@ -8,33 +8,8 @@ extends Area2D
 @onready var fatigue_bar: ProgressBar = $FatigueBar
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var animation_tree: AnimationTree = $AnimationTree
+@onready var unit_ai: UnitAI = $UnitAI
 
-
-var velocity := Vector2.ZERO
-	
-func _physics_process(_delta: float) -> void:
-	velocity = Vector2.ZERO
-	if Input.is_action_pressed("ui_up"):
-		velocity.y += 1
-	if Input.is_action_pressed("ui_down"):
-		velocity.y -= 1
-	if Input.is_action_pressed("ui_left"):
-		velocity.x -= 1
-	if Input.is_action_pressed("ui_right"):
-		velocity.x += 1
-
-	if velocity == Vector2.ZERO:
-		animation_tree.get("parameters/playback").travel("idle")
-	else:
-		animation_tree.get("parameters/playback").travel("running")
-		animation_tree.set("parameters/idle/blend_position", velocity)
-		animation_tree.set("parameters/running/blend_position", velocity)
-	
-func _input(input: InputEvent) -> void:
-	if input.is_action_pressed("ui_down"):
-		animation_player.play("run_down")
-	if input.is_action_released("ui_down"):
-		animation_player.play("idle")
 
 func set_stats(value: UnitStats) -> void:
 	stats = value
@@ -49,4 +24,16 @@ func set_stats(value: UnitStats) -> void:
 	collision_layer = stats.team + 1
 	
 	animated_skin.sprite_frames = stats.sprite_frames
-		 
+	
+func set_animation(animation_name: String, velocity = Vector2.ZERO) -> void:
+	animation_tree.get("parameters/playback").travel(animation_name)
+	animation_tree.set("parameters/idle/blend_position", Vector2(velocity))
+	animation_tree.set("parameters/running/blend_position", Vector2(velocity))
+	
+func face(direction_to_face: Vector2) -> void:
+	# There must be a way to set every parameter
+	var test := Vector2(0, 1)
+	animation_tree.set("parameters/idle/blend_position", Vector2(test))
+	animation_tree.set("parameters/running/blend_position", Vector2(test))
+
+	
