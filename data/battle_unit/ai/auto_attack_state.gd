@@ -17,8 +17,8 @@ func enter() -> void:
 	actor_unit = actor as BattleUnit
 	actor_unit.detect_range.area_exited.connect(_on_detect_range_exited)
 	actor_unit.attack_timer.timeout.connect(_attack)
+	_attack()
 	_setup_attack_timer()
-	actor_unit.animation_tree.set_animation_player("RESET")
 
 
 func exit() -> void:
