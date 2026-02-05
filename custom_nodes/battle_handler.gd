@@ -29,27 +29,12 @@ func _ready() -> void:
 	game_state.changed.connect(_on_game_state_changed)
 	
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("test1"):
-		var ai_unit := get_tree().get_nodes_in_group("player_units")[0] as BattleUnit
-		ai_unit.unit_ai.enabled = true
-		
-	if event.is_action_pressed("test2"):
-		var new_pos := UnitNavigation.get_next_position(enemy_test, enemy_target)
-		if new_pos == Vector2(-1, -1):
-			return
-		var new_pos_tile_vector := game_area.get_tile_from_global(new_pos)
-		var old_pos_tile_vector := game_area.get_tile_from_global(enemy_test.global_position)
-		var direction := new_pos_tile_vector -old_pos_tile_vector
-
-		var enemy_tween = enemy_test.create_tween()
-		enemy_tween.tween_property(enemy_test, "global_position", new_pos, 0.5)
-		enemy_tween.tween_callback(enemy_test.set_animation.bind("idle", direction))
-		enemy_test.set_animation("running", direction)
-		
 	if event.is_action_pressed("test3"):
 		get_tree().call_group("player_units", "queue_free")
 	
 func _setup_battle_units(unit_coord: Vector2i, new_unit: BattleUnit) -> void:
+	new_unit.stats.reset_health()
+	new_unit.stats.reset_fatigue()
 	new_unit.global_position = game_area.get_global_from_tile(unit_coord)
 	new_unit.tree_exited.connect(_on_battle_unit_died)
 	battle_unit_grid.add_unit(unit_coord, new_unit)
@@ -77,11 +62,12 @@ func _prepare_fight() -> void:
 		new_unit.stats.team = UnitStats.Team.ENEMY
 		_setup_battle_units(unit_coord, new_unit)
 		
-	# Testing code
-	player_test = get_tree().get_nodes_in_group("player_units")[0]
-	enemy_test = get_tree().get_nodes_in_group("enemy_units")[1]
-	player_target = get_tree().get_nodes_in_group("enemy_units").pick_random()
-	enemy_target = get_tree().get_nodes_in_group("player_units").pick_random()
+	UnitNavigation.update_occupied_tiles()
+	var battle_units := get_tree().get_nodes_in_group("player_units") + get_tree().get_nodes_in_group("enemy_units")
+	battle_units.shuffle()
+	
+	for battle_unit: BattleUnit in battle_units:
+		battle_unit.unit_ai.enabled = true
 		
 func _on_battle_unit_died() -> void:
 	# We already concluded the battle or we are quitting

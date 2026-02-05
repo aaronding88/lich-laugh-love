@@ -6,23 +6,28 @@ signal stuck
 
 var actor_unit: BattleUnit
 var tween: Tween
-var target: BattleUnit
 
 func enter() -> void:
 	actor_unit = actor as BattleUnit
-	_set_target(actor_unit.stats.team)
-	
-func _set_target(team: UnitStats.Team) -> void:
-	if team == UnitStats.Team.PLAYER:
-		target = actor_unit.get_tree().get_nodes_in_group("enemy_units").pick_random()
+	if _has_target_in_range():
+		_end_chase()
 	else:
-		target = actor_unit.get_tree().get_nodes_in_group("player_units").pick_random()
+		actor_unit.target_finder.find_target()
+		actor_unit.target_finder.targets_in_range_changed.connect(_on_targets_in_range_changed)
+		
+func exit() -> void:
+	if actor_unit.target_finder.targets_in_range_changed.is_connected(_on_targets_in_range_changed):
+		actor_unit.target_finder.targets_in_range_changed.disconnect(_on_targets_in_range_changed)
 
 func chase() -> void:
 	if tween and tween.is_running():
 		return
 	
-	var new_pos := UnitNavigation.get_next_position(actor_unit, target)
+	if _has_target_in_range():
+		return
+
+	actor_unit.target_finder.find_target()
+	var new_pos := UnitNavigation.get_next_position(actor_unit, actor_unit.target_finder.target)
 	
 	if new_pos == Vector2(-1, -1):
 		if _has_target_in_range():
@@ -32,7 +37,7 @@ func chase() -> void:
 		return
 	
 	var direction := UnitNavigation.vector_to_face(new_pos, actor_unit.global_position)
-	print(direction)
+
 	tween = actor_unit.create_tween()
 	# TODO: Figure out directionals
 	tween.tween_callback(actor_unit.set_animation.bind("running", direction))
@@ -48,7 +53,11 @@ func chase() -> void:
 	)
 
 func _end_chase() -> void:
-	target_reached.emit(target)
+	target_reached.emit.call_deferred(actor_unit.target_finder.targets_in_range[0])
 
 func _has_target_in_range() -> bool:
-	return (target.global_position - actor_unit.global_position).length() <= 150.0
+	return actor_unit.target_finder.has_target_in_range()
+	
+func _on_targets_in_range_changed() -> void:
+	if not tween and _has_target_in_range():
+		_end_chase()

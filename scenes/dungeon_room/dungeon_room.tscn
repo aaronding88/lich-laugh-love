@@ -251,6 +251,7 @@ play_area = NodePath("../../../GameArea")
 
 [node name="UnitRoster" parent="MainCamera/UI" instance=ExtResource("13_3o0a6")]
 unique_name_in_owner = true
+size_flags_horizontal = 1
 
 [node name="ResourceDisplay" parent="MainCamera/UI" instance=ExtResource("14_2naqr")]
 

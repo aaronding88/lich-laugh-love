@@ -1,7 +1,8 @@
-[gd_resource type="Resource" script_class="UnitStats" load_steps=7 format=3 uid="uid://dy0r3xqgqrkya"]
+[gd_resource type="Resource" script_class="UnitStats" load_steps=8 format=3 uid="uid://dy0r3xqgqrkya"]
 
 [ext_resource type="Texture2D" uid="uid://v46g8n0qm2gf" path="res://assets/isometric/unit_models/halberd/selection/Idle_Body.png" id="1_kdagd"]
 [ext_resource type="Script" uid="uid://bn7hlrg1pey0v" path="res://data/units/unit_stats.gd" id="2_3s5uq"]
+[ext_resource type="PackedScene" uid="uid://c76ok4kpw4cfb" path="res://scenes/_effects/attack_smear_effect.tscn" id="2_oob6c"]
 [ext_resource type="SpriteFrames" uid="uid://dkn1iyj2rta6h" path="res://data/enemies/halberd/halberd_sprite_frame.tres" id="3_oob6c"]
 [ext_resource type="Texture2D" uid="uid://dq2nwpw0r5e5h" path="res://assets/isometric/unit_models/halberd/Idle_Body_225.png" id="4_8ieip"]
 
@@ -21,4 +22,9 @@ unit_texture = SubResource("AtlasTexture_0em0a")
 icon_texture = SubResource("AtlasTexture_s2it6")
 sprite_frames = ExtResource("3_oob6c")
 team = 1
+max_health = 100
+max_fatigue = 100
+attack_damage = 5
+attack_speed = 1
+attack_range = 128
 metadata/_custom_type_script = "uid://bn7hlrg1pey0v"

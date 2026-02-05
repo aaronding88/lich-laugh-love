@@ -394,7 +394,6 @@ texture = SubResource("AtlasTexture_4ylgc")
 region_rect = Rect2(0, 0, 256, 256)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(9.5, -25.5)
 shape = SubResource("RectangleShape2D_bg1qp")
 
