@@ -27,23 +27,28 @@ func exit() -> void:
 	actor_unit.attack_timer.timeout.disconnect(_attack)
 	
 func _setup_attack_timer() -> void:
+	actor_unit.windup_timer.wait_time = 0.25
 	actor_unit.attack_timer.wait_time = actor_unit.stats.get_time_between_attacks()
 	actor_unit.attack_timer.start()
 	
 func _attack() -> void:
+	actor_unit.windup_timer.start()
 	var direction := UnitNavigation.vector_to_face(target.global_position, actor_unit.global_position)
+	actor_unit.set_animation_speed(max(actor_unit.stats.attack_speed, 1))
 	actor_unit.set_animation("attack", direction)
 	
-	if actor_unit.stats.is_melee():
+	await actor_unit.windup_timer.timeout
+	if actor_unit.stats.is_melee():	
+		# Optionally use wind up timer to spawn melee attack
 		var hitbox := actor_unit.melee_attack.attack(target.global_position) as HitBox
 		hitbox.damage = actor_unit.stats.get_attack_damage()
 		hitbox.collision_layer = actor_unit.stats.team + 1
 		hitbox.collision_mask = 2 - actor_unit.stats.team
-		if not actor_unit.animation_tree.animation_finished.is_connected(_on_attack_hit):
-			actor_unit.animation_tree.animation_finished.connect(_on_attack_hit.unbind(1), CONNECT_ONE_SHOT)
+		#if not actor_unit.animation_tree.animation_finished.is_connected(_on_attack_hit):
+			#actor_unit.animation_tree.animation_finished.connect(_on_attack_hit.unbind(1), CONNECT_ONE_SHOT)
 		#actor_unit.animation_player.animation_finished.connect(_on_attack_hit.unbind(1), CONNECT_ONE_SHOT)
 	else:
-		print("TODO spawn ranged projectile")
+		print("TODO spwawawn ranged projectile")
 	
 func _on_attack_hit() -> void:
 	if not target:

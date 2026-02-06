@@ -23,6 +23,5 @@ icon_texture = SubResource("AtlasTexture_86a3s")
 sprite_frames = ExtResource("3_uw5j2")
 max_health = 20
 attack_damage = 3
-attack_speed = 1
 attack_range = 150
 metadata/_custom_type_script = "uid://bn7hlrg1pey0v"

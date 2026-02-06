@@ -6,7 +6,6 @@ extends Node
 @export var spawn_point: Node2D
 @export var spawner: SceneSpawner
 
-
 func attack(target: Vector2) -> Node2D:
 	var angle := parent.global_position.direction_to(target).angle()
 	anchor.rotation = angle # we may not need an angle

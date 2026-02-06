@@ -20,6 +20,6 @@ icon_texture = ExtResource("1_svcku")
 sprite_frames = ExtResource("3_af2rk")
 max_health = 50
 attack_damage = 5
-attack_speed = 1
+attack_speed = 1.0
 attack_range = 128
 metadata/_custom_type_script = "uid://bn7hlrg1pey0v"

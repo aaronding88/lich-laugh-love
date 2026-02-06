@@ -42,7 +42,7 @@ const FATIGUE_PER_ATTACK := 1
 @export var max_health: int
 @export var max_fatigue: int
 @export var attack_damage: int
-@export var attack_speed: int
+@export var attack_speed: float # Attacks per one second
 @export var armor: int
 @export var magic_resist: int
 @export var attack_range: int
@@ -67,8 +67,7 @@ func get_time_between_attacks() -> float:
 	return 1.0 / attack_speed
 	
 func is_melee() -> bool:
-	# TODO: Figure out melee logic
-	return attack_range <= 150
+	return attack_range <= 128
 	
 func _set_health(value: int) -> void:
 	health = value

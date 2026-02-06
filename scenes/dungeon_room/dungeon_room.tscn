@@ -195,6 +195,7 @@ highlight_layer = NodePath("../Highlight")
 metadata/_custom_type_script = "uid://cjat1spuabjp4"
 
 [node name="UnitNavigationDebug" type="Node2D" parent="." node_paths=PackedStringArray("game_area")]
+visible = false
 z_index = 100
 script = ExtResource("7_hdg6q")
 color = Color(0.654902, 0, 0, 0.15686275)
