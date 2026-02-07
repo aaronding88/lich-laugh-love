@@ -3,9 +3,9 @@ extends Control
 
 signal unit_bought(unit: UnitStats)
 
-const UNIT_CARD = preload("res://scenes/unit_card/unit_card.tscn")
-
 @export var player_stats: PlayerStats
+
+@onready var scene_spawner: SceneSpawner = $SceneSpawner
 
 func _ready() -> void:
 	player_stats.unit_pool.generate_unit_pool()
@@ -14,10 +14,9 @@ func _ready() -> void:
 		child.queue_free()
 		
 	for unit_stats: UnitStats in player_stats.unit_pool.available_unit_types:
-		var new_card: UnitCard = UNIT_CARD.instantiate()
+		var new_card: UnitCard = scene_spawner.spawn_scene()
 		new_card.unit_stats = unit_stats
 		new_card.unit_bought.connect(_on_unit_bought)
-		add_child(new_card)
 
 		
 func _on_unit_bought(unit: UnitStats) -> void:

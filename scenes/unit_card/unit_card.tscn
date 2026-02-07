@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bo1hxqwkjve54" path="res://assets/isometric/unit_models/orc_warrior/Selection/Idle_Unarmed_Body.png" id="2_2ee4v"]
 [ext_resource type="Resource" uid="uid://ojtrw5fc8ohj" path="res://data/player/player_stats.tres" id="2_2yriv"]
 [ext_resource type="LabelSettings" uid="uid://demkg5o6vf37y" path="res://assets/fonts/basic_label_settings.tres" id="3_8ee35"]
-[ext_resource type="Resource" uid="uid://dvug8nvq2op1y" path="res://resources/units/orc.tres" id="3_27mlq"]
+[ext_resource type="Resource" uid="uid://dvug8nvq2op1y" path="res://data/units/orc/orc.tres" id="3_27mlq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2yriv"]
 resource_local_to_scene = true

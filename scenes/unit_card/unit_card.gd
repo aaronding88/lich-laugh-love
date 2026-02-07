@@ -45,6 +45,7 @@ func _set_unit_stats(value: UnitStats) -> void:
 	unit_count.text = str(unit_pool.get_current_unit_count(unit_stats))
 	resource_cost.text = str(unit_stats.resource_cost)
 	unit_image.texture.atlas = unit_stats.icon_texture
+	# TODO Make this work for smaller sizes, aka spider
 	
 func _on_player_stats_changed() -> void:
 	if not unit_stats:

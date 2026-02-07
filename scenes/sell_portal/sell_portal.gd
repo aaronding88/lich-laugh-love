@@ -29,6 +29,7 @@ func _on_unit_dropped(_starting_position: Vector2, unit: Unit) -> void:
 		_sell_unit(unit)
 
 func _on_area_entered(unit: Unit) -> void:
+	print("Unit entered")
 	current_unit = unit
 	outline_highlighter.highlight()
 	resource_label.text = str(unit.stats.resource_cost)

@@ -1,0 +1,56 @@
+class_name AutoAttackState
+extends State
+
+signal target_died
+signal target_left_range
+
+var actor_unit: BattleUnit
+var target: BattleUnit
+
+
+func _init(new_actor: Node, current_target: BattleUnit) -> void:
+	actor = new_actor
+	target = current_target
+	
+
+func enter() -> void:
+	actor_unit = actor as BattleUnit
+	actor_unit.detect_range.area_exited.connect(_on_detect_range_exited)
+	actor_unit.attack_timer.timeout.connect(_attack)
+	_attack()
+	_setup_attack_timer()
+
+
+func exit() -> void:
+	actor_unit.attack_timer.wait_time = actor_unit.stats.get_time_between_attacks()
+	actor_unit.attack_timer.stop()
+	actor_unit.attack_timer.timeout.disconnect(_attack)
+	
+func _setup_attack_timer() -> void:
+	actor_unit.windup_timer.wait_time = 0.25
+	actor_unit.attack_timer.wait_time = actor_unit.stats.get_time_between_attacks()
+	actor_unit.attack_timer.start()
+	
+func _attack() -> void:
+	actor_unit.windup_timer.start()
+	var direction := UnitNavigation.vector_to_face(target.global_position, actor_unit.global_position)
+	actor_unit.set_animation_speed(max(actor_unit.stats.attack_speed, 1))
+	actor_unit.set_animation("attack", direction)
+	
+	await actor_unit.windup_timer.timeout
+	if actor_unit.stats.is_melee():	
+		var hitbox := actor_unit.melee_attack.attack(target.global_position) as HitBox
+		hitbox.damage = actor_unit.stats.get_attack_damage()
+		hitbox.collision_layer = actor_unit.stats.team + 1
+		hitbox.collision_mask = 2 - actor_unit.stats.team
+		
+		actor_unit.stats.fatigue += UnitStats.FATIGUE_PER_ATTACK
+		target.stats.fatigue += UnitStats.FATIGUE_PER_ATTACK
+		if target.stats.health <= 0:
+			target_died.emit()
+	else:
+		print("TODO spawn ranged projectile")
+		
+func _on_detect_range_exited(area: Area2D) -> void:
+	if area is BattleUnit and area == target:
+		target_left_range.emit()
