@@ -20,10 +20,12 @@ func _ready() -> void:
 func find_target() -> void:
 	var opposing_group: String = UnitStats.TARGET[actor.stats.team]
 	var all_targets := actor.get_tree().get_nodes_in_group(opposing_group)
-	# This is a blackbox function right now, but I think we need a more precise targetfinder
+	# It might be nice to get a test for this...
 	var distances := all_targets.map(
 		func(target_candidate: BattleUnit) -> float:
-			return actor.global_position.distance_squared_to(target_candidate.global_position)
+			var actor_pos = UnitNavigation.screen_to_iso(actor.global_position)
+			var target_pos = UnitNavigation.screen_to_iso(target_candidate.global_position)
+			return actor_pos.distance_squared_to(target_pos)
 	)
 	var idx := distances.find(distances.min())
 	

@@ -1,0 +1,14 @@
+[gd_resource type="AnimationNodeBlendTree" load_steps=3 format=3 uid="uid://cs8c52j101tgm"]
+
+[ext_resource type="AnimationNodeBlendSpace2D" uid="uid://b28mu2fabk5ay" path="res://data/units/orc/orc_run_blend_2d.tres" id="1_5i63j"]
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_grfiu"]
+
+[resource]
+graph_offset = Vector2(-87.877594, 144.77899)
+nodes/output/position = Vector2(640, 180)
+nodes/time_scale/node = SubResource("AnimationNodeTimeScale_grfiu")
+nodes/time_scale/position = Vector2(440, 120)
+nodes/attack_animation/node = ExtResource("1_5i63j")
+nodes/attack_animation/position = Vector2(140, 120)
+node_connections = [&"output", 0, &"time_scale", &"time_scale", 0, &"attack_animation"]

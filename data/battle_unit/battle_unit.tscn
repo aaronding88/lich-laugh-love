@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://d2lrrtrcqq0f8"]
+[gd_scene load_steps=47 format=3 uid="uid://d2lrrtrcqq0f8"]
 
 [ext_resource type="Script" uid="uid://dx43ostus4g" path="res://data/battle_unit/battle_unit.gd" id="1_34dv8"]
 [ext_resource type="PackedScene" uid="uid://du2t2naw5eu6q" path="res://scenes/health_bar/health_bar.tscn" id="2_7qu1b"]
@@ -10,13 +10,14 @@
 [ext_resource type="Script" uid="uid://4d6dc8eepcao" path="res://components/attack.gd" id="7_iy0h6"]
 [ext_resource type="Script" uid="uid://c4akt01vg373a" path="res://custom_nodes/scene_spawner.gd" id="8_0scxy"]
 [ext_resource type="Script" uid="uid://cx6ub7l8la0hr" path="res://custom_nodes/target_finder.gd" id="8_qkcv8"]
-[ext_resource type="AnimationNodeBlendSpace2D" uid="uid://b28mu2fabk5ay" path="res://data/units/orc/orc_run_blend_2d.tres" id="11_0scxy"]
+[ext_resource type="AnimationNodeBlendTree" uid="uid://cs8c52j101tgm" path="res://resources/animation_blends/battle_unit_attack_blend_2d.tres" id="11_grfiu"]
+[ext_resource type="AnimationNodeBlendSpace2D" uid="uid://co7a7dp6q3ma5" path="res://resources/animation_blends/battle_unit_running_blend_2d.tres" id="12_lx57m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_34dv8"]
 size = Vector2(50, 48)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_0scxy"]
-radius = 128.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0scxy"]
+size = Vector2(64, 256)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gle24"]
 size = Vector2(47.5, 44.5)
@@ -407,42 +408,6 @@ _data = {
 &"run_up": SubResource("Animation_gle24")
 }
 
-[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_grfiu"]
-
-[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_lx57m"]
-graph_offset = Vector2(-84.480034, 87.36004)
-nodes/output/position = Vector2(640, 180)
-nodes/time_scale/node = SubResource("AnimationNodeTimeScale_grfiu")
-nodes/time_scale/position = Vector2(440, 120)
-nodes/attack_animation/node = ExtResource("11_0scxy")
-nodes/attack_animation/position = Vector2(140, 120)
-node_connections = [&"output", 0, &"time_scale", &"time_scale", 0, &"attack_animation"]
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7qu1b"]
-animation = &"idle"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_omcbh"]
-animation = &"idle_up"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_iy0h6"]
-animation = &"idle_left"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0scxy"]
-animation = &"idle_right"
-
-[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_omcbh"]
-blend_point_0/node = SubResource("AnimationNodeAnimation_7qu1b")
-blend_point_0/pos = Vector2(0, 1)
-blend_point_1/node = SubResource("AnimationNodeAnimation_omcbh")
-blend_point_1/pos = Vector2(0, -1)
-blend_point_2/node = SubResource("AnimationNodeAnimation_iy0h6")
-blend_point_2/pos = Vector2(-1, 0)
-blend_point_3/node = SubResource("AnimationNodeAnimation_0scxy")
-blend_point_3/pos = Vector2(1, 0)
-x_label = "y"
-y_label = "x"
-blend_mode = 1
-
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_grfiu"]
 animation = &"attack_down"
 
@@ -505,9 +470,9 @@ advance_mode = 2
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_l5q2e"]
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_grfiu"]
-states/attack/node = SubResource("AnimationNodeBlendTree_lx57m")
+states/attack/node = ExtResource("11_grfiu")
 states/attack/position = Vector2(492.59998, 202.07497)
-states/idle/node = SubResource("AnimationNodeBlendSpace2D_omcbh")
+states/idle/node = ExtResource("12_lx57m")
 states/idle/position = Vector2(377.5, 105)
 states/old_attack/node = SubResource("AnimationNodeBlendSpace2D_nh2s8")
 states/old_attack/position = Vector2(864.1, 217.82497)
@@ -531,14 +496,23 @@ sprite_frames = ExtResource("2_34dv8")
 position = Vector2(-2, -17)
 shape = SubResource("RectangleShape2D_34dv8")
 
-[node name="DetectRange" type="Area2D" parent="." node_paths=PackedStringArray("col_shape")]
+[node name="DetectRange" type="Area2D" parent="." node_paths=PackedStringArray("col_shape_y", "col_shape_x")]
 script = ExtResource("3_gle24")
-col_shape = NodePath("CollisionShape2D")
-base_range_size = 1.0
+col_shape_y = NodePath("CollisionShape2DY")
+col_shape_x = NodePath("CollisionShape2DX")
+base_range_size = 256.0
 metadata/_custom_type_script = "uid://cc05yn06j4oi1"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectRange"]
-shape = SubResource("CircleShape2D_0scxy")
+[node name="CollisionShape2DY" type="CollisionShape2D" parent="DetectRange"]
+rotation = 0.7853982
+skew = 0.34906584
+shape = SubResource("RectangleShape2D_0scxy")
+debug_color = Color(0.64107233, 0.33748978, 1, 0.41960785)
+
+[node name="CollisionShape2DX" type="CollisionShape2D" parent="DetectRange"]
+rotation = -0.7853982
+skew = -0.34906584
+shape = SubResource("RectangleShape2D_0scxy")
 debug_color = Color(0.64107233, 0.33748978, 1, 0.41960785)
 
 [node name="HurtBox" type="Area2D" parent="."]
@@ -626,7 +600,7 @@ libraries = {
 tree_root = SubResource("AnimationNodeStateMachine_grfiu")
 anim_player = NodePath("../AnimationPlayer")
 parameters/attack/time_scale/scale = 1.0
-parameters/attack/attack_animation/blend_position = Vector2(0.0020325184, -0.99107146)
+parameters/attack/attack_animation/blend_position = Vector2(-0.00057047606, 0.9730942)
 parameters/idle/blend_position = Vector2(128, 1)
 parameters/old_attack/blend_position = Vector2(0.0029296875, 0.9821428)
-parameters/running/blend_position = Vector2(128, 256)
+parameters/running/blend_position = Vector2(-0.005134046, -0.8565023)

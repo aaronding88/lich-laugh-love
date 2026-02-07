@@ -39,9 +39,8 @@ func chase() -> void:
 	var direction := UnitNavigation.vector_to_face(new_pos, actor_unit.global_position)
 
 	tween = actor_unit.create_tween()
-	# TODO: Figure out directionals
 	tween.tween_callback(actor_unit.set_animation.bind("running", direction))
-	tween.tween_property(actor_unit, "global_position", new_pos, UnitStats.MOVE_ONE_TILE_SPEED)
+	tween.tween_property(actor_unit, "global_position", new_pos, 1.0 / actor_unit.stats.speed)
 	tween.finished.connect(
 		func():
 			tween.kill()

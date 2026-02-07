@@ -1,16 +1,16 @@
 [gd_resource type="AnimationNodeBlendSpace2D" load_steps=5 format=3 uid="uid://b28mu2fabk5ay"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dr2a3"]
-animation = &"run_up"
+animation = &"attack_down"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_mw5hk"]
-animation = &"run_down"
+animation = &"attack_up"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_q1s22"]
-animation = &"run_right"
+animation = &"attack_right"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4adlr"]
-animation = &"run_left"
+animation = &"attack_left"
 
 [resource]
 blend_point_0/node = SubResource("AnimationNodeAnimation_dr2a3")

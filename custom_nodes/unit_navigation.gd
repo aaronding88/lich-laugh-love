@@ -7,6 +7,10 @@ var game_area: PlayArea
 var astar_grid: AStarGrid2D
 var full_grid_region: Rect2i
 
+# TODO: Turn this into a global variable
+const CELL_SIZE := Vector2(256, 128)
+const HALF_CELL_SIZE := Vector2(128, 64)
+const QUARTER_CELL_SIZE := Vector2(64, 32)
 
 func initialize(grid: UnitGrid, area: PlayArea) -> void:
 	battle_grid = grid
@@ -27,7 +31,7 @@ func initialize(grid: UnitGrid, area: PlayArea) -> void:
 # TODO: maybe there's a better way than filling the whole arena?
 func update_occupied_tiles() -> void:
 	astar_grid.fill_solid_region(full_grid_region, false)
-	#block_tiles_outside_arena()
+
 	for id: Vector2i in battle_grid.get_all_occupied_tiles():
 		astar_grid.set_point_solid(id)
 
@@ -71,3 +75,8 @@ func vector_to_face(new_pos: Vector2, unit_position: Vector2) -> Vector2:
 	var new_pos_tile_vector := game_area.get_tile_from_global(new_pos)
 	var old_pos_tile_vector := game_area.get_tile_from_global(unit_position)
 	return new_pos_tile_vector - old_pos_tile_vector
+
+func screen_to_iso(pos: Vector2) -> Vector2:
+	var grid_x = (pos.x / (CELL_SIZE.x / 2) + pos.y / (CELL_SIZE.y / 2)) / 2
+	var grid_y = (pos.y / (CELL_SIZE.y / 2) - pos.x / (CELL_SIZE.x / 2)) / 2
+	return Vector2(grid_x, grid_y)

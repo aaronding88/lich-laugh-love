@@ -26,5 +26,5 @@ max_health = 100
 max_fatigue = 100
 attack_damage = 5
 attack_speed = 0.5
-attack_range = 128
+attack_range = 1
 metadata/_custom_type_script = "uid://bn7hlrg1pey0v"

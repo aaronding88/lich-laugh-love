@@ -50,6 +50,7 @@ const FATIGUE_PER_ATTACK := 1
 @export var ranged_attack: PackedScene
 @export var ability: PackedScene
 @export var auto_attack_sound: AudioStream
+@export var speed := 1.0  # Time it takes to traverse 1 tile
 
 var health: int : set = _set_health
 var fatigue: int : set = _set_fatigue
