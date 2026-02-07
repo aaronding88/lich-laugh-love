@@ -9,5 +9,5 @@ func _ready() -> void:
 func _on_area_entered(hitbox: Area2D) -> void:
 	if not hitbox is HitBox:
 		return
-	
+
 	hurt.emit((hitbox as HitBox).damage)

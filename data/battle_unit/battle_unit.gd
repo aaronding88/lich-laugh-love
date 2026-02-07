@@ -68,7 +68,6 @@ func set_animation_speed(playtime: float) -> void:
 	
 	
 func _on_hurt(damage: int) -> void:
-	print("hurt!")
 	stats.health -= damage
 
 func _on_death() -> void:

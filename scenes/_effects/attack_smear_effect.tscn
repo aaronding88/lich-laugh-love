@@ -82,7 +82,6 @@ metadata/_custom_type_script = "uid://doxv77jmsp45h"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_xgllf")
-autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_w734p")
@@ -92,6 +91,7 @@ disabled = true
 libraries = {
 &"": SubResource("AnimationLibrary_kfrut")
 }
+autoplay = "smear"
 
 [node name="OneTimeAnimation" type="Node" parent="." node_paths=PackedStringArray("animation_player")]
 script = ExtResource("3_6ga13")

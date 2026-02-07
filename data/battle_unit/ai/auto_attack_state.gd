@@ -39,26 +39,17 @@ func _attack() -> void:
 	
 	await actor_unit.windup_timer.timeout
 	if actor_unit.stats.is_melee():	
-		# Optionally use wind up timer to spawn melee attack
 		var hitbox := actor_unit.melee_attack.attack(target.global_position) as HitBox
 		hitbox.damage = actor_unit.stats.get_attack_damage()
 		hitbox.collision_layer = actor_unit.stats.team + 1
 		hitbox.collision_mask = 2 - actor_unit.stats.team
-		#if not actor_unit.animation_tree.animation_finished.is_connected(_on_attack_hit):
-			#actor_unit.animation_tree.animation_finished.connect(_on_attack_hit.unbind(1), CONNECT_ONE_SHOT)
-		#actor_unit.animation_player.animation_finished.connect(_on_attack_hit.unbind(1), CONNECT_ONE_SHOT)
+		
+		actor_unit.stats.fatigue += UnitStats.FATIGUE_PER_ATTACK
+		target.stats.fatigue += UnitStats.FATIGUE_PER_ATTACK
+		if target.stats.health <= 0:
+			target_died.emit()
 	else:
-		print("TODO spwawawn ranged projectile")
-	
-func _on_attack_hit() -> void:
-	if not target:
-		return
-	
-	actor_unit.stats.fatigue += UnitStats.FATIGUE_PER_ATTACK
-	target.stats.fatigue += UnitStats.FATIGUE_PER_ATTACK
-	print("Attack hit triggered")
-	if target.stats.health <= 0:
-		target_died.emit()
+		print("TODO spawn ranged projectile")
 		
 func _on_detect_range_exited(area: Area2D) -> void:
 	if area is BattleUnit and area == target:

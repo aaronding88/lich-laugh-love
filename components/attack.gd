@@ -8,7 +8,7 @@ extends Node
 
 func attack(target: Vector2) -> Node2D:
 	var angle := parent.global_position.direction_to(target).angle()
-	anchor.rotation = angle # we may not need an angle
+	anchor.rotation = angle
 	var attack_scene := spawner.spawn_scene(get_tree().root) as Node2D
 	attack_scene.global_position = spawn_point.global_position
 	attack_scene.rotation = angle
