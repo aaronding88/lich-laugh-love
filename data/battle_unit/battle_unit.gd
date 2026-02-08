@@ -1,8 +1,11 @@
 class_name BattleUnit
 extends Area2D
 
+signal unit_died
+
 @export var stats: UnitStats: set = set_stats
 
+@onready var unit_body: CollisionShape2D = $CollisionShape2D
 @onready var animated_skin: AnimatedSprite2D = $AnimatedSkin
 @onready var hurt_box: HurtBox = $HurtBox
 @onready var detect_range: DetectRange = $DetectRange
@@ -16,6 +19,8 @@ extends Area2D
 @onready var target_finder: TargetFinder = $TargetFinder
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var animation_tree: AnimationTree = $AnimationTree
+
+var is_dead := false
 
 func _process(_delta: float) -> void:
 	# DEBUG CODE
@@ -66,10 +71,23 @@ func set_animation(animation_name: String, velocity = Vector2.ZERO) -> void:
 func set_animation_speed(playtime: float) -> void:
 	animation_tree.set("parameters/attack/time_scale/scale", playtime)
 	
-	
 func _on_hurt(damage: int) -> void:
 	stats.health -= damage
 
 func _on_death() -> void:
-	print(stats.name, " dies!")
-	queue_free()
+	animation_tree.get("parameters/playback").travel("death")
+	
+	# Should create a reusable "set dead" function, if needed
+	health_bar.hide()
+	fatigue_bar.hide()
+	is_dead = true
+	unit_body.set_deferred("disabled", true)
+	hurt_box.collision_layer = 0
+	hurt_box.collision_mask = 0
+	if stats.team == stats.Team.PLAYER:
+		add_to_group("player_dead_units")	
+		remove_from_group("player_units")
+	else:
+		add_to_group("enemy_dead_units")
+		remove_from_group("enemy_units")
+	unit_died.emit()

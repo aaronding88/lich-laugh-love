@@ -36,12 +36,14 @@ func _setup_battle_units(unit_coord: Vector2i, new_unit: BattleUnit) -> void:
 	new_unit.stats.reset_health()
 	new_unit.stats.reset_fatigue()
 	new_unit.global_position = game_area.get_global_from_tile(unit_coord)
-	new_unit.tree_exited.connect(_on_battle_unit_died)
+	new_unit.unit_died.connect(_on_battle_unit_died)
 	battle_unit_grid.add_unit(unit_coord, new_unit)
 	
 func _clean_up_fight() -> void:
 	get_tree().call_group("player_units", "queue_free")
 	get_tree().call_group("enemy_units", "queue_free")
+	get_tree().call_group("player_dead_units", "queue_free")
+	get_tree().call_group("enemy_dead_units", "queue_free")
 	get_tree().call_group("units", "show")
 	
 func _prepare_fight() -> void:
@@ -71,9 +73,11 @@ func _prepare_fight() -> void:
 		
 func _on_battle_unit_died() -> void:
 	# We already concluded the battle or we are quitting
-	print("Battle unit died")
 	if not get_tree() or game_state.current_phase == GameState.Phase.PREPARATION:
 		return
+	
+	print(get_tree().get_node_count_in_group("enemy_units"), " left in Enemy team")
+	print(get_tree().get_node_count_in_group("player_units"), " left in Player team")
 		
 	if get_tree().get_node_count_in_group("enemy_units") == 0:
 		print("player won!")

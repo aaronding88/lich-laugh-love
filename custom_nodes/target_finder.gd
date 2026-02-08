@@ -28,8 +28,10 @@ func find_target() -> void:
 			return actor_pos.distance_squared_to(target_pos)
 	)
 	var idx := distances.find(distances.min())
-	
-	target = all_targets[idx]
+	if idx >= 0:
+		target = all_targets[idx]
+	else:
+		target = null
 	
 func has_target_in_range() -> bool:
 	return targets_in_range.size() > 0
@@ -44,7 +46,7 @@ func _on_area_entered(area: Area2D) -> void:
 func _on_area_exited(area: Area2D) -> void:
 	if not area is BattleUnit:
 		return
-	
+
 	targets_in_range.erase(area)
 	targets_in_range_changed.emit()
 	

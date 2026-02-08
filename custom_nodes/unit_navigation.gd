@@ -47,6 +47,9 @@ func block_tiles_outside_arena() -> void:
 				astar_grid.set_point_solid(cell)
 
 func get_next_position(moving_unit: BattleUnit, target_unit: BattleUnit) -> Vector2:
+	if target_unit == null:
+		return Vector2(-1, -1)
+
 	var unit_tile := game_area.get_tile_from_global(moving_unit.global_position)
 	var target_tile := game_area.get_tile_from_global(target_unit.global_position)
 	

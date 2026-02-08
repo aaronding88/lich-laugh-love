@@ -14,6 +14,7 @@ func _ready() -> void:
 		func(new_state: State):
 			debug_label.text = new_state.get_script().get_global_name()
 	)
+	actor.unit_died.connect(_on_death)
 
 func _set_enabled(value: bool) -> void:
 	enabled = value
@@ -53,3 +54,7 @@ func _on_chase_state_target_reached(target: BattleUnit) -> void:
 	aa_state.target_died.connect(_start_chasing, CONNECT_ONE_SHOT)
 	aa_state.target_left_range.connect(_start_chasing, CONNECT_ONE_SHOT)
 	fsm.change_state(aa_state)
+	
+func _on_death() -> void:
+	var death_state := DeathState.new(actor)
+	fsm.change_state(death_state)
