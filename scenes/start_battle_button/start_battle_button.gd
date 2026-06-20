@@ -17,11 +17,11 @@ func _ready() -> void:
 func _update() -> void:
 	var units_used := arena_grid.get_all_units().size()
 	
-	disabled = game_state.is_battling() or units_used == 0
+	disabled = not game_state.is_preparing() or units_used == 0
 	label.modulate.a = 0.5 if disabled else 1.0
 	
 func _on_pressed() -> void:
-	if game_state.current_phase == GameState.Phase.BATTLE:
+	if not game_state.is_preparing():
 		return
 	
 	game_state.current_phase = GameState.Phase.BATTLE

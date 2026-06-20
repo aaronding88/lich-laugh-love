@@ -4,7 +4,8 @@ extends Resource
 # We could also have a battle-complete phase
 enum Phase {
 	PREPARATION,
-	BATTLE
+	BATTLE,
+	COMPLETE
 }
 
 @export var current_phase: Phase:
@@ -14,3 +15,9 @@ enum Phase {
 
 func is_battling() -> bool:
 	return current_phase == Phase.BATTLE
+	
+func is_completed() -> bool:
+	return current_phase == Phase.COMPLETE
+	
+func is_preparing() -> bool:
+	return current_phase == Phase.PREPARATION

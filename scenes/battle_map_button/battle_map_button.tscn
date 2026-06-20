@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://bi774qkhk6oo3"]
+
+[ext_resource type="Texture2D" uid="uid://dohhnbhjrvj06" path="res://assets/isometric/environment/tilesheet/iconsDefault.png" id="1_cu7y6"]
+[ext_resource type="Script" uid="uid://u23i4ju7e2kl" path="res://scenes/battle_map_button/battle_map_button.gd" id="2_2ffk2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xu1pw"]
+atlas = ExtResource("1_cu7y6")
+region = Rect2(768, 320, 64, 64)
+
+[node name="BattleMapButton" type="Button"]
+offset_right = 8.0
+offset_bottom = 8.0
+icon = SubResource("AtlasTexture_xu1pw")
+script = ExtResource("2_2ffk2")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

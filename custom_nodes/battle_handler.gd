@@ -46,6 +46,10 @@ func _clean_up_fight() -> void:
 	get_tree().call_group("enemy_dead_units", "queue_free")
 	get_tree().call_group("units", "show")
 	
+func _setup_post_fight() -> void:
+	get_tree().call_group("player_units", "set_victory_state")
+	get_tree().call_group("enemy_units", "set_victory_state")
+	
 func _prepare_fight() -> void:
 	get_tree().call_group("units", "hide")
 	
@@ -76,16 +80,13 @@ func _on_battle_unit_died() -> void:
 	if not get_tree() or game_state.current_phase == GameState.Phase.PREPARATION:
 		return
 	
-	print(get_tree().get_node_count_in_group("enemy_units"), " left in Enemy team")
-	print(get_tree().get_node_count_in_group("player_units"), " left in Player team")
-		
 	if get_tree().get_node_count_in_group("enemy_units") == 0:
 		print("player won!")
-		game_state.current_phase = GameState.Phase.PREPARATION
+		game_state.current_phase = GameState.Phase.COMPLETE
 		player_won.emit()
 	if get_tree().get_node_count_in_group("player_units") == 0:
 		print("enemy won!")
-		game_state.current_phase = GameState.Phase.PREPARATION
+		game_state.current_phase = GameState.Phase.COMPLETE
 		enemy_won.emit()
 	
 func _on_game_state_changed() -> void:
@@ -94,3 +95,5 @@ func _on_game_state_changed() -> void:
 			_clean_up_fight()
 		GameState.Phase.BATTLE:
 			_prepare_fight()
+		GameState.Phase.COMPLETE:
+			_setup_post_fight()

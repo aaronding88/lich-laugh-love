@@ -2,6 +2,7 @@ class_name BattleUnit
 extends Area2D
 
 signal unit_died
+signal unit_won
 
 @export var stats: UnitStats: set = set_stats
 
@@ -91,3 +92,8 @@ func _on_death() -> void:
 		add_to_group("enemy_dead_units")
 		remove_from_group("enemy_units")
 	unit_died.emit()
+	
+func set_victory_state() -> void:
+	# In the future, we can have this be "celebrate" state
+	animation_tree.get("parameters/playback").travel("idle")
+	unit_won.emit.call_deferred()

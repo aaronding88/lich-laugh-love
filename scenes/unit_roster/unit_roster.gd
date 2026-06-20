@@ -14,7 +14,7 @@ func _ready() -> void:
 		child.queue_free()
 		
 	for unit_stats: UnitStats in player_stats.unit_pool.available_unit_types:
-		var new_card: UnitCard = scene_spawner.spawn_scene()
+		var new_card:  = scene_spawner.spawn_scene()
 		new_card.unit_stats = unit_stats
 		new_card.unit_bought.connect(_on_unit_bought)
 

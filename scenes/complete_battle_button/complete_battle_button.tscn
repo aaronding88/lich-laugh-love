@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bthq0th76wjyq"]
+
+[ext_resource type="Script" uid="uid://dihiecakx5q3p" path="res://scenes/complete_battle_button/complete_battle_button.gd" id="1_ijggd"]
+
+[node name="CompleteBattleButton" type="Button"]
+visible = false
+custom_minimum_size = Vector2(256, 64)
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Complete Battle"
+script = ExtResource("1_ijggd")

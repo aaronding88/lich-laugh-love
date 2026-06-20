@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://br8yg3atee78u"]
+
+[ext_resource type="Texture2D" uid="uid://dohhnbhjrvj06" path="res://assets/isometric/environment/tilesheet/iconsDefault.png" id="1_3fvrh"]
+[ext_resource type="Script" uid="uid://dn7sxmyrhmkms" path="res://scenes/dungeon_map_button/dungeon_map_button.gd" id="2_xu1pw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xu1pw"]
+atlas = ExtResource("1_3fvrh")
+region = Rect2(768, 0, 64, 64)
+
+[node name="DungeonMapButton" type="Button"]
+offset_right = 8.0
+offset_bottom = 8.0
+icon = SubResource("AtlasTexture_xu1pw")
+script = ExtResource("2_xu1pw")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

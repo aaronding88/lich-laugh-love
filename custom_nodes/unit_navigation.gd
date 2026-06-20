@@ -23,10 +23,7 @@ func initialize(grid: UnitGrid, area: PlayArea) -> void:
 	astar_grid.diagonal_mode = AStarGrid2D.DIAGONAL_MODE_NEVER
 	astar_grid.cell_shape = AStarGrid2D.CellShape.CELL_SHAPE_ISOMETRIC_DOWN
 	astar_grid.update()
-	#block_tiles_outside_arena()
 	battle_grid.unit_grid_changed.connect(update_occupied_tiles)
-	
-	# Set up solid point outside rect
 	
 # TODO: maybe there's a better way than filling the whole arena?
 func update_occupied_tiles() -> void:
@@ -74,6 +71,10 @@ func get_next_position(moving_unit: BattleUnit, target_unit: BattleUnit) -> Vect
 	
 	return game_area.get_global_from_tile(next_tile)
 	
+func clear_dead_unit_tile(unit: BattleUnit) -> void:
+	var unit_tile := game_area.get_tile_from_global(unit.global_position)
+	astar_grid.set_point_solid(unit_tile, false)
+
 func vector_to_face(new_pos: Vector2, unit_position: Vector2) -> Vector2:
 	var new_pos_tile_vector := game_area.get_tile_from_global(new_pos)
 	var old_pos_tile_vector := game_area.get_tile_from_global(unit_position)

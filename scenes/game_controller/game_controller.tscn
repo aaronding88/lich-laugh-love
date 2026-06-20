@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://dwft0bwm8lw0o"]
+
+[ext_resource type="Script" uid="uid://coiw3pt1qq5mo" path="res://scenes/game_controller/game_controller.gd" id="1_c3f1a"]
+[ext_resource type="PackedScene" uid="uid://daqlvni0vje2f" path="res://scenes/dungeon_room/dungeon_room.tscn" id="1_hiwhh"]
+[ext_resource type="PackedScene" uid="uid://dyx5b85ise0qh" path="res://scenes/dungeon_map/dungeon_map.tscn" id="3_gupwa"]
+
+[node name="GameController" type="Node" node_paths=PackedStringArray("battle_view", "dungeon_map")]
+script = ExtResource("1_c3f1a")
+battle_view = NodePath("DungeonRoom")
+dungeon_map = NodePath("DungeonMap")
+
+[node name="DungeonRoom" parent="." instance=ExtResource("1_hiwhh")]
+
+[node name="DungeonMap" parent="." instance=ExtResource("3_gupwa")]

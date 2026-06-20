@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://daqlvni0vje2f"]
+[gd_scene load_steps=26 format=4 uid="uid://daqlvni0vje2f"]
 
 [ext_resource type="TileSet" uid="uid://iirxeuj11qtn" path="res://resources/tilesets/dungeon_room.tres" id="1_5xam1"]
 [ext_resource type="Script" uid="uid://ck1lf2rq3opj4" path="res://scenes/dungeon_room/dungeon_room.gd" id="1_j14ek"]
@@ -21,6 +21,8 @@
 [ext_resource type="Resource" uid="uid://ojtrw5fc8ohj" path="res://data/player/player_stats.tres" id="15_8qi0i"]
 [ext_resource type="Script" uid="uid://r24mnrnibmd5" path="res://components/debug_label.gd" id="16_hdg6q"]
 [ext_resource type="PackedScene" uid="uid://do17meahwpdou" path="res://scenes/start_battle_button/start_battle_button.tscn" id="18_gr2lc"]
+[ext_resource type="PackedScene" uid="uid://br8yg3atee78u" path="res://scenes/dungeon_map_button/dungeon_map_button.tscn" id="21_si4s1"]
+[ext_resource type="PackedScene" uid="uid://bthq0th76wjyq" path="res://scenes/complete_battle_button/complete_battle_button.tscn" id="22_bowro"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_le5r4"]
 texture = ExtResource("4_kns8m")
@@ -136,9 +138,11 @@ tile_layout = 5
 tile_size = Vector2i(256, 128)
 sources/2 = SubResource("TileSetAtlasSource_le5r4")
 
-[node name="DungeonRoom" type="Node2D"]
+[node name="DungeonRoom" type="Node2D" node_paths=PackedStringArray("ui_layer")]
 y_sort_enabled = true
 script = ExtResource("1_j14ek")
+game_state = ExtResource("11_6uegk")
+ui_layer = NodePath("MainCamera/UI")
 
 [node name="Visuals" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -172,7 +176,7 @@ tile_set = SubResource("TileSet_ohn1x")
 
 [node name="Floor" type="TileMapLayer" parent="GameArea"]
 y_sort_enabled = true
-tile_map_data = PackedByteArray("AAAAAAAAPAADAAQAAAAAAAEAPAADAAQAAAAAAAIAPAADAAQAAAAAAAMAPAABAAQAAAAAAAQAPAAHAAEAAAAAAAUAPAAFAAIAAAAAAAYAPAABAAQAAAAAAAcAPAAAAAQAAAABAAAAPAAAAAQAAAABAAEAPAALAAMAAAABAAIAPAAAAAQAAAABAAMAPAABAAQAAAABAAQAPAAKAAIAAAABAAUAPAAJAAIAAAABAAYAPAABAAQAAAABAAcAPAACAAQAAAACAAAAPAABAAQAAAACAAEAPAACAAQAAAACAAIAPAADAAQAAAACAAMAPAAKAAMAAAACAAQAPAAKAAIAAAACAAUAPAAJAAIAAAACAAYAPAADAAQAAAACAAcAPAAJAAMAAAADAAAAPAABAAQAAAADAAEAPAABAAQAAAADAAIAPAABAAEAAAADAAMAPAABAAQAAAADAAQAPAACAAMAAAADAAUAPAAFAAMAAAADAAYAPAACAAQAAAADAAcAPAABAAQAAAAEAAAAPAAAAAQAAAAEAAEAPAAAAAQAAAAEAAIAPAAAAAQAAAAEAAMAPAABAAQAAAAEAAQAPAAGAAIAAAAEAAUAPAAFAAIAAAAEAAYAPAABAAQAAAAEAAcAPAADAAQAAAAFAAAAPAAAAAQAAAAFAAEAPAACAAQAAAAFAAIAPAAKAAMAAAAFAAMAPAALAAMAAAAFAAQAPAAGAAIAAAAFAAUAPAAFAAIAAAAFAAYAPAABAAQAAAAFAAcAPAACAAQAAAAGAAAAPAACAAQAAAAGAAEAPAAIAAMAAAAGAAIAPAACAAQAAAAGAAMAPAAIAAMAAAAGAAQAPAAGAAMAAAAGAAUAPAAJAAIAAAAGAAYAPAACAAQAAAAGAAcAPAACAAQAAAAHAAAAPAAAAAQAAAAHAAEAPAABAAQAAAAHAAIAPAABAAQAAAAHAAMAPAAIAAMAAAAHAAQAPAAKAAIAAAAHAAUAPAABAAMAAAAHAAYAPAADAAEAAAAHAAcAPAAAAAQAAAA=")
+tile_map_data = PackedByteArray("AAAAAAAAAQACAAUAAAAAAAEAAQACAAUAAAAAAAIAAQAAAAMAAAAAAAMAAQAAAAMAAAAAAAQAAQACAAMAAAAAAAUAAQACAAQAAAAAAAYAAQACAAQAAAAAAAcAAQAAAAQAAAABAAAAAQACAAUAAAABAAEAAQACAAUAAAABAAIAAQABAAMAAAABAAMAAQABAAQAAAABAAQAAQACAAUAAAABAAUAAQAAAAQAAAABAAYAAQACAAQAAAABAAcAAQACAAQAAAACAAAAAQADAAMAAAACAAEAAQAAAAUAAAACAAIAAQADAAQAAAACAAMAAQABAAUAAAACAAQAAQADAAMAAAACAAUAAQAAAAMAAAACAAYAAQADAAUAAAACAAcAAQABAAQAAAADAAAAAQAAAAMAAAADAAEAAQAAAAUAAAADAAIAAQADAAUAAAADAAMAAQACAAQAAAADAAQAAQADAAQAAAADAAUAAQADAAUAAAADAAYAAQACAAQAAAADAAcAAQABAAQAAAAEAAAAAQADAAUAAAAEAAEAAQAAAAMAAAAEAAIAAQADAAMAAAAEAAMAAQADAAUAAAAEAAQAAQAAAAUAAAAEAAUAAQAAAAUAAAAEAAYAAQADAAMAAAAEAAcAAQACAAUAAAAFAAAAAQACAAMAAAAFAAEAAQADAAMAAAAFAAIAAQABAAQAAAAFAAMAAQAAAAUAAAAFAAQAAQABAAMAAAAFAAYAAQACAAUAAAAFAAcAAQABAAQAAAAGAAAAAQADAAMAAAAGAAEAAQACAAUAAAAGAAIAAQADAAUAAAAGAAMAAQADAAMAAAAGAAQAAQACAAMAAAAGAAUAAQAAAAMAAAAGAAYAAQACAAUAAAAGAAcAAQACAAMAAAAHAAAAAQAAAAUAAAAHAAEAAQACAAUAAAAHAAIAAQADAAQAAAAHAAMAAQADAAUAAAAHAAQAAQABAAMAAAAHAAUAAQADAAMAAAAHAAYAAQABAAQAAAAHAAcAAQABAAUAAAAFAAUAAQACAAMAAAA=")
 tile_set = ExtResource("1_5xam1")
 
 [node name="ArenaUnitGrid" type="Node2D" parent="GameArea" node_paths=PackedStringArray("floor_area")]
@@ -195,7 +199,6 @@ highlight_layer = NodePath("../Highlight")
 metadata/_custom_type_script = "uid://cjat1spuabjp4"
 
 [node name="UnitNavigationDebug" type="Node2D" parent="." node_paths=PackedStringArray("game_area")]
-visible = false
 z_index = 100
 script = ExtResource("7_hdg6q")
 color = Color(0.654902, 0, 0, 0.15686275)
@@ -243,6 +246,60 @@ move_speed = 800.0
 
 [node name="UI" type="CanvasLayer" parent="MainCamera"]
 
+[node name="NonBattleUI" type="Control" parent="MainCamera/UI"]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainCamera/UI/NonBattleUI"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 869.0
+offset_right = 1072.0
+offset_bottom = 80.0
+grow_horizontal = 2
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="DungeonMapButton" parent="MainCamera/UI/NonBattleUI/HBoxContainer" instance=ExtResource("21_si4s1")]
+layout_mode = 2
+
+[node name="ResourceDisplay" parent="MainCamera/UI/NonBattleUI/HBoxContainer" instance=ExtResource("14_2naqr")]
+layout_mode = 2
+
+[node name="UnitRoster" parent="MainCamera/UI/NonBattleUI" instance=ExtResource("13_3o0a6")]
+unique_name_in_owner = true
+layout_mode = 1
+offset_left = 522.0
+offset_top = 848.0
+offset_right = 1418.0
+offset_bottom = 1040.0
+size_flags_horizontal = 1
+
+[node name="SellPortal" parent="MainCamera/UI/NonBattleUI" instance=ExtResource("14_8qi0i")]
+unique_name_in_owner = true
+position = Vector2(1792, 64)
+player_stats = ExtResource("15_8qi0i")
+
+[node name="StartBattleButton" parent="MainCamera/UI/NonBattleUI" node_paths=PackedStringArray("arena_grid") instance=ExtResource("18_gr2lc")]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 906.0
+offset_top = 128.0
+offset_right = 1034.0
+offset_bottom = 192.0
+grow_horizontal = 2
+focus_mode = 0
+game_state = ExtResource("11_6uegk")
+player_stats = ExtResource("15_8qi0i")
+arena_grid = NodePath("../../../../GameArea/ArenaUnitGrid")
+
 [node name="DebugLabel" type="Label" parent="MainCamera/UI" node_paths=PackedStringArray("play_area")]
 offset_right = 40.0
 offset_bottom = 23.0
@@ -250,30 +307,21 @@ text = "Test Label"
 script = ExtResource("16_hdg6q")
 play_area = NodePath("../../../GameArea")
 
-[node name="UnitRoster" parent="MainCamera/UI" instance=ExtResource("13_3o0a6")]
-unique_name_in_owner = true
-size_flags_horizontal = 1
-
-[node name="ResourceDisplay" parent="MainCamera/UI" instance=ExtResource("14_2naqr")]
-
-[node name="SellPortal" parent="MainCamera/UI" instance=ExtResource("14_8qi0i")]
-unique_name_in_owner = true
-position = Vector2(1792, 64)
-player_stats = ExtResource("15_8qi0i")
-
-[node name="StartBattleButton" parent="MainCamera/UI" node_paths=PackedStringArray("arena_grid") instance=ExtResource("18_gr2lc")]
-anchors_preset = 5
+[node name="CompleteBattleButton" parent="MainCamera/UI" instance=ExtResource("22_bowro")]
+visible = true
+anchors_preset = 8
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
-offset_left = -64.0
-offset_top = 64.0
-offset_right = 64.0
-offset_bottom = 144.0
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -32.0
+offset_right = 128.0
+offset_bottom = 32.0
 grow_horizontal = 2
-focus_mode = 0
+grow_vertical = 2
+size_flags_horizontal = 4
 game_state = ExtResource("11_6uegk")
-player_stats = ExtResource("15_8qi0i")
-arena_grid = NodePath("../../../GameArea/ArenaUnitGrid")
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 bus = &"Music"

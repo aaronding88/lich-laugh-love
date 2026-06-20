@@ -55,7 +55,8 @@ func get_all_occupied_tiles() -> Array[Vector2i]:
 	var tile_array: Array[Vector2i] = []
 	
 	for tile: Vector2i in units.keys():
-		if units[tile]:
+		var unit = units[tile]
+		if unit && _unit_takes_space(unit):
 			tile_array.append(tile)
 
 	return tile_array
@@ -66,3 +67,6 @@ func _on_unit_tree_exited(unit: Node, tile: Vector2i) -> void:
 	if unit.is_queued_for_deletion():
 		units[tile] = null
 		unit_grid_changed.emit()
+		
+func _unit_takes_space(unit: Node) -> bool:
+	return unit is Unit || (unit is BattleUnit && not unit.is_dead)
