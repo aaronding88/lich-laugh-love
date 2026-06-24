@@ -15,6 +15,7 @@ const QUARTER_CELL_SIZE := Vector2(64, 32)
 @onready var unit_roster: UnitShop = %UnitRoster
 @onready var sell_portal: SellPortal = %SellPortal
 @onready var non_battle_ui: Control = %NonBattleUI
+@onready var dungeon_map_button: DungeonMapButton = %DungeonMapButton
 
 func _ready() -> void:
 	unit_spawner.unit_spawned.connect(unit_mover.setup_unit)

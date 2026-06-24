@@ -266,6 +266,7 @@ theme_override_constants/separation = 32
 alignment = 1
 
 [node name="DungeonMapButton" parent="MainCamera/UI/NonBattleUI/HBoxContainer" instance=ExtResource("21_si4s1")]
+unique_name_in_owner = true
 layout_mode = 2
 
 [node name="ResourceDisplay" parent="MainCamera/UI/NonBattleUI/HBoxContainer" instance=ExtResource("14_2naqr")]

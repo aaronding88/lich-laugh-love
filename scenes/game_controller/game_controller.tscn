@@ -10,5 +10,6 @@ battle_view = NodePath("DungeonRoom")
 dungeon_map = NodePath("DungeonMap")
 
 [node name="DungeonRoom" parent="." instance=ExtResource("1_hiwhh")]
+position = Vector2(-1, 0)
 
 [node name="DungeonMap" parent="." instance=ExtResource("3_gupwa")]

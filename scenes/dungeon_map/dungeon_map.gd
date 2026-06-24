@@ -1,6 +1,8 @@
 class_name DungeonMap
 extends Node2D
 
+@onready var battle_map_button: BattleMapButton = %BattleMapButton
+
 @export var ui_layer: CanvasLayer
 
 func _pause_and_hide():
